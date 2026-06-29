@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Color System — Deep Space + Electric Blue */
+  --bg-deep: #060a13;
+  --bg-surface: #0c1220;
+  --bg-elevated: #111827;
+  --text-primary: #e8edf5;
+  --text-secondary: #7b8ba5;
+  --text-muted: #4a5568;
+  
+  /* Accent Palette */
+  --accent-blue: #2d7aff;
+  --accent-blue-bright: #5b9aff;
+  --accent-blue-glow: rgba(45, 122, 255, 0.35);
+  --accent-blue-subtle: rgba(45, 122, 255, 0.08);
+  --accent-cyan: #06d6a0;
+  --accent-violet: #7c3aed;
+  
+  /* Glass System */
+  --glass-bg: rgba(12, 18, 32, 0.75);
+  --glass-border: rgba(45, 122, 255, 0.12);
+  --glass-border-hover: rgba(45, 122, 255, 0.35);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  
+  /* Spacing */
+  --section-gap: 120px;
+  
+  /* Typography */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* === RESET === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === ATMOSPHERIC BACKGROUND === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(45, 122, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(45, 122, 255, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === UTILITIES === */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-blue-bright), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === BUTTONS === */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, #1a65e0 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow:
+    0 4px 20px var(--accent-blue-glow),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 30px var(--accent-blue-glow),
+    0 0 0 1px rgba(45, 122, 255, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* === LAYOUT === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === NAVIGATION === */
+.main-nav {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  border-radius: 100px;
+  width: auto;
+  white-space: nowrap;
+  background: rgba(6, 10, 19, 0.85);
+  border: 1px solid rgba(45, 122, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* Necesario para recortar la barra de progreso en las esquinas */
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent-blue-bright) !important;
+  letter-spacing: 0.08em;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus-visible {
+  color: #fff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* === ACCESSIBILITY === */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* === SECTION DIVIDER (Decorative line between sections) === */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+  border-radius: 3px;
+  margin: 0 auto 20px;
+}
+
+/* === NAV PROGRESS BAR === */
+.nav-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+  z-index: 1;
+  box-shadow: 0 0 8px var(--accent-blue-glow);
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+}
+
+/* === FLOATING WHATSAPP === */
+.whatsapp-floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 20px rgba(37, 211, 102, 0.35),
+    0 8px 40px rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  animation: whatsappPulse 3s infinite;
+}
+
+.whatsapp-floating:hover {
+  transform: scale(1.12) translateY(-3px);
+  box-shadow:
+    0 6px 25px rgba(37, 211, 102, 0.5),
+    0 12px 50px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float-icon {
+  font-size: 1.8rem;
+}
+
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35), 0 8px 40px rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.55), 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(37, 211, 102, 0.08); }
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --section-gap: 80px;
+  }
+  
+  .main-nav {
+    top: 10px;
+    padding: 10px 18px;
+    gap: 14px;
+    font-size: 0.82rem;
+  }
+  
+  .nav-brand {
+    font-size: 0.82rem;
+  }
+  
+  .whatsapp-floating {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+  
+  .whatsapp-float-icon {
+    font-size: 1.4rem;
+  }
+}

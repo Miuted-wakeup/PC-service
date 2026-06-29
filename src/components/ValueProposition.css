@@ -1,0 +1,134 @@
+.value {
+  padding: var(--section-gap) 0;
+  position: relative;
+}
+
+.value__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.value__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.value__subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* === GRID === */
+.value__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* === ITEM === */
+.val-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.val-item:hover {
+  background: var(--accent-blue-subtle);
+  border-color: var(--glass-border);
+  transform: translateX(6px);
+}
+
+/* Ordinal Number */
+.val-item__number {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(45, 122, 255, 0.25);
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  letter-spacing: 0.1em;
+}
+
+/* Icon */
+.val-item__icon {
+  font-size: 2rem;
+  background: var(--accent-blue-subtle);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  flex-shrink: 0;
+  border: 1px solid rgba(45, 122, 255, 0.12);
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.val-item:hover .val-item__icon {
+  transform: scale(1.1);
+  background: rgba(45, 122, 255, 0.12);
+  border-color: rgba(45, 122, 255, 0.3);
+  box-shadow: 0 0 16px rgba(45, 122, 255, 0.1);
+}
+
+/* Text */
+.val-item__title {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  font-family: var(--font-display);
+}
+
+.val-item__desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .value__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .value {
+    padding: var(--section-gap) 0;
+  }
+  
+  .value__header {
+    margin-bottom: 40px;
+  }
+  
+  .val-item {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+  
+  .val-item:hover {
+    transform: translateX(4px);
+  }
+  
+  .val-item__icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+    border-radius: 12px;
+  }
+  
+  .val-item__title {
+    font-size: 1.05rem;
+  }
+  
+  .val-item__desc {
+    font-size: 0.85rem;
+  }
+}
