@@ -1,0 +1,215 @@
+.hiw {
+  padding: var(--section-gap) 0;
+  position: relative;
+}
+
+.hiw__header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.hiw__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.hiw__subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* === STEPS LAYOUT === */
+.hiw__steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 56px;
+}
+
+/* === STEP CARD === */
+.hiw__step {
+  flex: 1;
+  max-width: 300px;
+  text-align: center;
+  padding: 36px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.hiw__step:hover {
+  background: var(--accent-blue-subtle);
+  border-color: var(--glass-border);
+  transform: translateY(-6px);
+}
+
+.hiw__step-number {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(45, 122, 255, 0.2);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  letter-spacing: 0.1em;
+}
+
+.hiw__step-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--accent-blue-subtle);
+  border: 1px solid rgba(45, 122, 255, 0.12);
+  border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hiw__step:hover .hiw__step-icon {
+  transform: scale(1.1);
+  background: rgba(45, 122, 255, 0.12);
+  border-color: rgba(45, 122, 255, 0.3);
+  box-shadow: 0 0 24px rgba(45, 122, 255, 0.12);
+}
+
+.hiw__step-title {
+  font-size: 1.2rem;
+  font-family: var(--font-display);
+  margin-bottom: 12px;
+}
+
+.hiw__step-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.hiw__step-detail {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  background: rgba(6, 214, 160, 0.08);
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(6, 214, 160, 0.15);
+}
+
+/* === CONNECTOR === */
+.hiw__connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+  width: 50px;
+  flex-shrink: 0;
+}
+
+.hiw__connector-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(45, 122, 255, 0.1), rgba(45, 122, 255, 0.3), rgba(45, 122, 255, 0.1));
+}
+
+.hiw__connector-arrow {
+  font-size: 1.2rem;
+  color: rgba(45, 122, 255, 0.3);
+  margin-top: 4px;
+}
+
+/* === GUARANTEE BADGE === */
+.hiw__guarantee {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 680px;
+  margin: 0 auto 40px;
+  padding: 24px 28px;
+  background: rgba(6, 214, 160, 0.04);
+  border: 1px solid rgba(6, 214, 160, 0.15);
+  border-radius: var(--radius-lg);
+}
+
+.hiw__guarantee-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.hiw__guarantee-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.hiw__guarantee-text strong {
+  color: var(--accent-cyan);
+}
+
+/* === CTA === */
+.hiw__cta {
+  text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .hiw__steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .hiw__step {
+    max-width: 100%;
+  }
+  
+  .hiw__connector {
+    padding-top: 0;
+    width: auto;
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 576px) {
+  .hiw__header {
+    margin-bottom: 48px;
+  }
+  
+  .hiw__step {
+    padding: 24px 16px;
+  }
+  
+  .hiw__step-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 2.4rem;
+  }
+  
+  .hiw__step-title {
+    font-size: 1.05rem;
+  }
+  
+  .hiw__guarantee {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 16px;
+    gap: 12px;
+  }
+  
+  .hiw__cta .btn-primary {
+    width: 100%;
+    padding: 16px 24px;
+  }
+}
