@@ -48,7 +48,7 @@ const ValueProposition = () => {
         
         <div className="value__grid">
           {values.map(value => (
-            <div key={value.id} className="val-item">
+            <div key={value.id} className="val-item glass-panel">
               <span className="val-item__number">{value.number}</span>
               <div className="val-item__icon">{value.icon}</div>
               <div className="val-item__text">

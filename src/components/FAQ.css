@@ -40,11 +40,15 @@
 
 .faq__item:hover {
   border-color: var(--glass-border-hover);
+  box-shadow: 0 4px 20px rgba(45, 122, 255, 0.04);
 }
 
 .faq__item--open {
-  border-color: rgba(45, 122, 255, 0.25);
-  box-shadow: 0 4px 20px rgba(45, 122, 255, 0.06);
+  border-color: rgba(45, 122, 255, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(45, 122, 255, 0.1);
+  background: rgba(17, 24, 39, 0.85);
 }
 
 /* === QUESTION BUTTON === */

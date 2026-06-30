@@ -61,26 +61,49 @@ body {
   position: relative;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 122, 255, 0.2);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+  box-shadow: 0 0 10px var(--accent-blue-glow);
+}
+
 /* === ATMOSPHERIC BACKGROUND === */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(45, 122, 255, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+    radial-gradient(circle 60vw at 50% -20vh, rgba(45, 122, 255, 0.16) 0%, transparent 70%),
+    radial-gradient(circle 50vw at 85% 60vh, rgba(124, 58, 237, 0.08) 0%, transparent 70%),
+    radial-gradient(circle 45vw at 15% 85vh, rgba(6, 214, 160, 0.05) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  animation: atmosphericGlow 22s ease-in-out infinite alternate;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(rgba(45, 122, 255, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-  pointer-events: none;
-  z-index: 0;
+@keyframes atmosphericGlow {
+  0% {
+    filter: hue-rotate(0deg) brightness(1) saturate(1);
+    transform: scale(1);
+  }
+  50% {
+    filter: hue-rotate(15deg) brightness(1.1) saturate(1.1);
+    transform: scale(1.03);
+  }
+  100% {
+    filter: hue-rotate(-12deg) brightness(0.95) saturate(0.95);
+    transform: scale(0.98);
+  }
 }
 
 .app-container {
