@@ -1,31 +1,31 @@
 :root {
-  /* Color System — Deep Space + Electric Blue */
-  --bg-deep: #060a13;
-  --bg-surface: #0c1220;
-  --bg-elevated: #111827;
-  --text-primary: #e8edf5;
-  --text-secondary: #7b8ba5;
-  --text-muted: #4a5568;
+  /* Color System — Premium Dark Hardware (Mineral + Tech Gold) */
+  --bg-deep: #05070c;
+  --bg-surface: #0a0e17;
+  --bg-elevated: #0f1422;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
   
   /* Accent Palette */
-  --accent-blue: #2d7aff;
-  --accent-blue-bright: #5b9aff;
-  --accent-blue-glow: rgba(45, 122, 255, 0.35);
-  --accent-blue-subtle: rgba(45, 122, 255, 0.08);
-  --accent-cyan: #06d6a0;
-  --accent-violet: #7c3aed;
+  --accent-blue: #fbbf24;
+  --accent-blue-bright: #f59e0b;
+  --accent-blue-glow: rgba(245, 158, 11, 0.22);
+  --accent-blue-subtle: rgba(251, 191, 36, 0.05);
+  --accent-cyan: #06b6d4;
+  --accent-violet: #8b5cf6;
   
   /* Glass System */
-  --glass-bg: rgba(12, 18, 32, 0.75);
-  --glass-border: rgba(45, 122, 255, 0.12);
-  --glass-border-hover: rgba(45, 122, 255, 0.35);
+  --glass-bg: rgba(10, 14, 23, 0.75);
+  --glass-border: rgba(251, 191, 36, 0.08);
+  --glass-border-hover: rgba(251, 191, 36, 0.25);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   
   /* Spacing */
   --section-gap: 120px;
   
   /* Typography */
-  --font-display: 'Orbitron', sans-serif;
+  --font-display: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   
   /* Radius */
@@ -67,7 +67,7 @@ body {
   background: var(--bg-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(45, 122, 255, 0.2);
+  background: rgba(251, 191, 36, 0.15);
   border-radius: 100px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -81,9 +81,12 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(circle 60vw at 50% -20vh, rgba(45, 122, 255, 0.16) 0%, transparent 70%),
-    radial-gradient(circle 50vw at 85% 60vh, rgba(124, 58, 237, 0.08) 0%, transparent 70%),
-    radial-gradient(circle 45vw at 15% 85vh, rgba(6, 214, 160, 0.05) 0%, transparent 70%);
+    linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+    radial-gradient(circle 55vw at 50% -20vh, rgba(245, 158, 11, 0.08) 0%, transparent 70%),
+    radial-gradient(circle 45vw at 85% 60vh, rgba(139, 92, 246, 0.05) 0%, transparent 70%),
+    radial-gradient(circle 40vw at 15% 85vh, rgba(6, 182, 212, 0.04) 0%, transparent 70%);
+  background-size: 40px 40px, 40px 40px, auto, auto, auto;
   pointer-events: none;
   z-index: 0;
   animation: atmosphericGlow 22s ease-in-out infinite alternate;
@@ -95,11 +98,11 @@ body::before {
     transform: scale(1);
   }
   50% {
-    filter: hue-rotate(15deg) brightness(1.1) saturate(1.1);
-    transform: scale(1.03);
+    filter: hue-rotate(8deg) brightness(1.05) saturate(1.05);
+    transform: scale(1.02);
   }
   100% {
-    filter: hue-rotate(-12deg) brightness(0.95) saturate(0.95);
+    filter: hue-rotate(-8deg) brightness(0.95) saturate(0.95);
     transform: scale(0.98);
   }
 }
@@ -112,9 +115,9 @@ body::before {
 /* === TYPOGRAPHY === */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   color: #fff;
 }
 
@@ -126,8 +129,8 @@ a {
 /* === UTILITIES === */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
@@ -210,23 +213,23 @@ a {
   border-radius: 100px;
   width: auto;
   white-space: nowrap;
-  background: rgba(6, 10, 19, 0.85);
-  border: 1px solid rgba(45, 122, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  overflow: hidden; /* Necesario para recortar la barra de progreso en las esquinas */
+  background: rgba(10, 14, 23, 0.85);
+  border: 1px solid rgba(251, 191, 36, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
 .nav-brand {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.95rem;
-  color: var(--accent-blue-bright) !important;
+  color: var(--accent-blue) !important;
   letter-spacing: 0.08em;
 }
 
 .nav-link {
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9rem;
   transition: color 0.3s ease;
   position: relative;

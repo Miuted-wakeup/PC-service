@@ -50,8 +50,8 @@
 .hiw__step-number {
   font-family: var(--font-display);
   font-size: 0.7rem;
-  font-weight: 700;
-  color: rgba(45, 122, 255, 0.2);
+  font-weight: 800;
+  color: rgba(251, 191, 36, 0.18);
   position: absolute;
   top: 16px;
   right: 20px;
@@ -121,12 +121,12 @@
 .hiw__connector-line {
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, rgba(45, 122, 255, 0.1), rgba(45, 122, 255, 0.3), rgba(45, 122, 255, 0.1));
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.05), rgba(251, 191, 36, 0.25), rgba(251, 191, 36, 0.05));
 }
 
 .hiw__connector-arrow {
   font-size: 1.2rem;
-  color: rgba(45, 122, 255, 0.3);
+  color: rgba(251, 191, 36, 0.25);
   margin-top: 4px;
 }
 

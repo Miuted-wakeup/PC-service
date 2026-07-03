@@ -59,9 +59,9 @@
   transform: translateY(-8px);
   border-color: var(--glass-border-hover);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.6),
-    0 0 35px rgba(45, 122, 255, 0.14);
-  background: rgba(17, 24, 39, 0.85);
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(251, 191, 36, 0.12);
+  background: rgba(13, 18, 30, 0.85);
 }
 
 /* Shine sweep effect */
@@ -71,9 +71,9 @@
   background: linear-gradient(
     110deg,
     transparent 30%,
-    rgba(45, 122, 255, 0.04) 45%,
-    rgba(45, 122, 255, 0.08) 50%,
-    rgba(45, 122, 255, 0.04) 55%,
+    rgba(251, 191, 36, 0.03) 45%,
+    rgba(251, 191, 36, 0.06) 50%,
+    rgba(251, 191, 36, 0.03) 55%,
     transparent 70%
   );
   transform: translateX(-100%);
@@ -103,15 +103,15 @@
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  border: 1px solid rgba(45, 122, 255, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.15);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .svc-card:hover .svc-card__icon {
   transform: scale(1.1) rotate(-5deg);
-  background: rgba(45, 122, 255, 0.12);
-  border-color: rgba(45, 122, 255, 0.3);
-  box-shadow: 0 0 20px rgba(45, 122, 255, 0.1);
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
 }
 
 .svc-card__tag {
@@ -123,7 +123,7 @@
   background: var(--accent-blue-subtle);
   padding: 4px 10px;
   border-radius: 6px;
-  border: 1px solid rgba(45, 122, 255, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.1);
 }
 
 /* Card Text */
@@ -145,7 +145,7 @@
 .svc-card__footer {
   margin-top: 20px;
   padding-top: 16px;
-  border-top: 1px solid rgba(45, 122, 255, 0.08);
+  border-top: 1px solid rgba(251, 191, 36, 0.08);
   width: 100%;
 }
 

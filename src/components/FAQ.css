@@ -40,15 +40,15 @@
 
 .faq__item:hover {
   border-color: var(--glass-border-hover);
-  box-shadow: 0 4px 20px rgba(45, 122, 255, 0.04);
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.04);
 }
 
 .faq__item--open {
-  border-color: rgba(45, 122, 255, 0.4);
+  border-color: rgba(251, 191, 36, 0.3);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(45, 122, 255, 0.1);
-  background: rgba(17, 24, 39, 0.85);
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(251, 191, 36, 0.08);
+  background: rgba(13, 18, 30, 0.85);
 }
 
 /* === QUESTION BUTTON === */
@@ -133,7 +133,7 @@
   font-size: 0.93rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  border-top: 1px solid rgba(45, 122, 255, 0.08);
+  border-top: 1px solid rgba(251, 191, 36, 0.08);
   padding-top: 16px;
 }
 
