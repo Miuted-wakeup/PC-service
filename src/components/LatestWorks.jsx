@@ -37,10 +37,10 @@ const LatestWorks = () => {
       <div className="works-accordion">
         {works.map((work) => (
           <div key={work.id} className="works-card-wrapper">
-            <img 
-              src={work.image} 
-              alt={work.title} 
-              className="works-card__img" 
+            <img
+              src={work.image}
+              alt={work.title}
+              className="works-card__img"
             />
             <div className="works-card__overlay">
               <h3 className="works-card__title">{work.title}</h3>

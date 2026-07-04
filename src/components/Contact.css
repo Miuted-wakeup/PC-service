@@ -203,6 +203,8 @@
 .payment-cards-logos {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 12px;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
