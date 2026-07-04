@@ -254,7 +254,7 @@
   .hero__inner {
     flex-direction: column;
     text-align: center;
-    padding-top: 110px;
+    padding-top: 130px;
     gap: 40px;
   }
   
@@ -264,6 +264,8 @@
   
   .hero__subtitle {
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .hero__actions {
@@ -286,7 +288,7 @@
   }
   
   .hero__inner {
-    padding-top: 100px;
+    padding-top: 110px;
     padding-bottom: 40px;
     gap: 30px;
   }
