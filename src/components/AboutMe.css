@@ -19,7 +19,8 @@
 /* === INTERACTIVE CARD === */
 .about-card {
   position: relative;
-  width: 340px;
+  width: 100%;
+  max-width: 360px;
   height: 420px;
   border-radius: var(--radius-xl);
   padding: 1px;

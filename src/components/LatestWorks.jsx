@@ -27,10 +27,10 @@ const LatestWorks = () => {
     <section className="works-section" id="trabajos">
       <div className="section-header">
         <span className="section-tagline">Galería de Proyectos Recientes</span>
-        <h2 className="section-title">Nuestras Creaciones</h2>
+        <h2 className="section-title">Mis Creaciones</h2>
         <div className="section-divider"></div>
         <p className="section-description">
-          Una muestra visual de nuestro trabajo minucioso: cada ensamble y optimización se realiza con la máxima precisión y componentes premium.
+          Una muestra visual de mi trabajo minucioso: cada ensamble y optimización se realiza con la máxima precisión y componentes premium.
         </p>
       </div>
 

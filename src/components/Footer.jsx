@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('¡Gracias por suscribirte a nuestro boletín técnico!');
+    alert('¡Gracias por suscribirte a mi boletín técnico!');
     e.target.reset();
   };
 

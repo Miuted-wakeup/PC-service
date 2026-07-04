@@ -13,7 +13,7 @@ const services = [
   {
     id: 2,
     title: "Armado de PCs Custom",
-    description: "Ensamblaje profesional de computadores para Gaming, Diseño o Trabajo. Te asesoramos en la compra de los mejores componentes.",
+    description: "Ensamblaje profesional de computadores para Gaming, Diseño o Trabajo. Te asesoro en la compra de los mejores componentes.",
     icon: "🖥️",
     tag: "Gaming / Oficina",
     time: "~2-3 horas"

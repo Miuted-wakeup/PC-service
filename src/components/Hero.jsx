@@ -22,7 +22,7 @@ const Hero = ({ whatsappUrl }) => {
           
           <p className="hero__subtitle">
             Mantenimiento profesional, armado custom y configuración de equipos. 
-            Eliminamos la lentitud, los virus y llevamos tu rendimiento al máximo.
+            Elimino la lentitud, los virus y llevo tu rendimiento al máximo.
           </p>
 
           <p className="hero__guarantee">

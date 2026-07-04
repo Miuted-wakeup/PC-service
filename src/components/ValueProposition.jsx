@@ -19,14 +19,14 @@ const values = [
   {
     id: 3,
     title: "Rapidez y Eficiencia",
-    description: "Entendemos que tu PC es tu herramienta de trabajo o entretenimiento, por eso optimizamos los tiempos de entrega.",
+    description: "Entiendo que tu PC es tu herramienta de trabajo o entretenimiento, por eso optimizo los tiempos de entrega.",
     icon: "⚡",
     number: "03"
   },
   {
     id: 4,
     title: "Atención Personalizada",
-    description: "Te explicamos detalladamente qué necesita tu equipo y por qué, sin tecnicismos confusos.",
+    description: "Te explico detalladamente qué necesita tu equipo y por qué, sin tecnicismos confusos.",
     icon: "🤝",
     number: "04"
   }
