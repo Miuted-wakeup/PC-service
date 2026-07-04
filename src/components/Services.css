@@ -37,6 +37,7 @@
   overflow: hidden;
   animation: cardReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
   cursor: default;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Animated top border */
@@ -214,4 +215,44 @@
   .svc-card__desc {
     font-size: 0.88rem;
   }
+}
+
+/* === LIGHT MODE ADJUSTMENTS === */
+.light-mode .svc-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.light-mode .svc-card:hover {
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 
+    0 15px 35px rgba(15, 23, 42, 0.08),
+    0 0 25px rgba(37, 99, 235, 0.08);
+}
+
+.light-mode .svc-card__icon {
+  background: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+}
+
+.light-mode .svc-card:hover .svc-card__icon {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.light-mode .svc-card__tag {
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.1);
+}
+
+.light-mode .svc-card__footer {
+  border-top-color: rgba(15, 23, 42, 0.06);
+}
+
+.light-mode .svc-card:hover .svc-card__time {
+  color: #1d4ed8;
 }

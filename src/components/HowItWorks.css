@@ -213,3 +213,59 @@
     padding: 16px 24px;
   }
 }
+
+/* === LIGHT MODE ADJUSTMENTS === */
+.light-mode .hiw__step:hover {
+  background: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+.light-mode .hiw__step-number {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.light-mode .hiw__step-icon {
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.light-mode .hiw__step:hover .hiw__step-icon {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 24px rgba(37, 99, 235, 0.08);
+}
+
+.light-mode .hiw__step-title {
+  color: #0f172a;
+}
+
+.light-mode .hiw__step-desc {
+  color: #475569;
+}
+
+.light-mode .hiw__step-detail {
+  color: #0891b2;
+  background: rgba(8, 145, 178, 0.05);
+  border-color: rgba(8, 145, 178, 0.15);
+}
+
+.light-mode .hiw__connector-line {
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.1));
+}
+
+.light-mode .hiw__connector-arrow {
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.light-mode .hiw__guarantee {
+  background: rgba(6, 214, 160, 0.03);
+  border-color: rgba(6, 214, 160, 0.15);
+}
+
+.light-mode .hiw__guarantee-text {
+  color: #475569;
+}
+
+.light-mode .hiw__guarantee-text strong {
+  color: #0f172a;
+}

@@ -360,3 +360,58 @@
     display: none;
   }
 }
+
+/* === LIGHT MODE ADJUSTMENTS === */
+.light-mode .hero__orb--1 {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+}
+
+.light-mode .hero__orb--2 {
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.03) 0%, transparent 70%);
+}
+
+.light-mode .hero__badge {
+  background: rgba(37, 99, 235, 0.06);
+  border-color: rgba(37, 99, 235, 0.15);
+  color: #1d4ed8;
+}
+
+.light-mode .hero__title {
+  color: #0f172a;
+}
+
+.light-mode .hero__subtitle {
+  color: #475569;
+}
+
+.light-mode .hero__guarantee {
+  background: rgba(8, 145, 178, 0.04);
+}
+
+.light-mode .hero__guarantee strong {
+  color: #0f172a;
+}
+
+.light-mode .hero__btn-ghost {
+  color: #475569;
+}
+
+.light-mode .hero__btn-ghost:hover {
+  color: #1d4ed8;
+}
+
+.light-mode .hero__stats {
+  border-top-color: rgba(15, 23, 42, 0.08);
+}
+
+.light-mode .hero__stat-number {
+  color: #0f172a;
+}
+
+.light-mode .hero__stat-divider {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.light-mode .hero__glow {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+}

@@ -16,6 +16,13 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.light-mode .contact__card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
 }
 
 /* Corner accent lines */
@@ -34,12 +41,22 @@
   border-top-left-radius: var(--radius-xl);
 }
 
+.light-mode .contact__corner--tl {
+  border-top-color: rgba(37, 99, 235, 0.25);
+  border-left-color: rgba(37, 99, 235, 0.25);
+}
+
 .contact__corner--br {
   bottom: 0;
   right: 0;
   border-bottom: 2px solid rgba(251, 191, 36, 0.25);
   border-right: 2px solid rgba(251, 191, 36, 0.25);
   border-bottom-right-radius: var(--radius-xl);
+}
+
+.light-mode .contact__corner--br {
+  border-bottom-color: rgba(37, 99, 235, 0.25);
+  border-right-color: rgba(37, 99, 235, 0.25);
 }
 
 .contact__content {
@@ -51,6 +68,12 @@
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin-bottom: 20px;
   line-height: 1.15;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.light-mode .contact__title {
+  color: #0f172a;
 }
 
 .contact__desc {
@@ -61,60 +84,219 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.7;
+  transition: color 0.3s ease;
 }
 
-/* WhatsApp Button */
-.contact__btn {
-  display: inline-flex;
+.light-mode .contact__desc {
+  color: #475569;
+}
+
+/* Payment Selector */
+.payment-container {
+  max-width: 380px;
+  width: 100%;
+  margin: 32px auto;
+  padding: 24px;
+  background: rgba(10, 14, 23, 0.65);
+  border: 1px solid rgba(251, 191, 36, 0.12);
+  border-radius: var(--radius-md);
+  text-align: left;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.light-mode .payment-container {
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.payment-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.15);
+  padding-bottom: 8px;
+}
+
+.light-mode .payment-title {
+  border-bottom-color: rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
   align-items: center;
   gap: 12px;
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: #fff;
-  padding: 16px 36px;
-  border-radius: 100px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow:
-    0 8px 24px rgba(37, 211, 102, 0.25),
-    inset 0 1px 0 rgba(255,255,255,0.15);
-  position: relative;
-  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
 
-.contact__btn::before {
+.payment-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  background: transparent;
+}
+
+.light-mode .payment-radio {
+  border: 2px solid rgba(15, 23, 42, 0.3);
+}
+
+.payment-radio:checked {
+  border-color: var(--accent-blue-bright);
+}
+
+.light-mode .payment-radio:checked {
+  border-color: var(--accent-blue);
+}
+
+.payment-radio:checked::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-blue-bright);
 }
 
-.contact__btn:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow:
-    0 12px 30px rgba(37, 211, 102, 0.35),
-    0 0 0 1px rgba(37, 211, 102, 0.2);
+.light-mode .payment-radio:checked::before {
+  background-color: var(--accent-blue);
 }
 
-.contact__btn:hover::before {
+.payment-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.light-mode .payment-label {
+  color: #475569;
+}
+
+.payment-option:hover .payment-label {
+  color: var(--text-primary);
+}
+
+.light-mode .payment-option:hover .payment-label {
+  color: #0f172a;
+}
+
+.payment-cards-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light-mode .payment-cards-logos {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.payment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.light-mode .payment-badge {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #475569;
+}
+
+.payment-svg-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.payment-badge:hover {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.35);
+  color: var(--text-primary);
+}
+
+.light-mode .payment-badge:hover {
+  background: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.2);
+  color: #0f172a;
+}
+
+.payment-badge:hover .payment-svg-icon {
+  color: var(--accent-blue-bright);
+}
+
+/* PayPal specific hover */
+.payment-badge--paypal:hover {
+  background: rgba(0, 112, 186, 0.08);
+  border-color: rgba(0, 112, 186, 0.35);
+}
+
+.payment-logo-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Gray scale for logos in dark mode to blend in, color on hover */
+.payment-logo-img {
+  filter: grayscale(0.8);
+  opacity: 0.8;
+}
+
+.light-mode .payment-logo-img {
+  filter: none;
   opacity: 1;
 }
 
-.contact__btn-icon {
-  font-size: 1.4rem;
+.payment-badge:hover .payment-logo-img {
+  filter: none;
+  opacity: 1;
 }
 
-/* Footer */
+/* Nequi specific hover */
+.payment-badge--nequi:hover {
+  background: rgba(228, 0, 124, 0.08);
+  border-color: rgba(228, 0, 124, 0.35);
+}
+
+.contact__rainbow-btn {
+  margin-top: 8px;
+}
+
+/* Footer (Deprecated - moved to dedicated Footer component) */
 .contact__footer {
-  text-align: center;
-  padding-top: 32px;
-  border-top: 1px solid rgba(251, 191, 36, 0.08);
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  letter-spacing: 0.02em;
+  display: none;
 }
 
 /* === RESPONSIVE === */

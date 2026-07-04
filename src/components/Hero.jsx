@@ -30,8 +30,8 @@ const Hero = ({ whatsappUrl }) => {
           </p>
           
           <div className="hero__actions">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              💬 Solicitar Diagnóstico Gratis
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="rainbow-btn-wrapper">
+              <button className="rainbow-btn">💬 Solicitar Diagnóstico Gratis</button>
             </a>
             <a href="#servicios" className="hero__btn-ghost">
               Ver Servicios →
