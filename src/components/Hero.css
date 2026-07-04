@@ -220,6 +220,8 @@
 .hero__image {
   width: 100%;
   max-width: 480px;
+  height: auto;
+  object-fit: cover;
   border-radius: var(--radius-xl);
   position: relative;
   z-index: 1;
@@ -351,6 +353,8 @@
   
   .hero__image {
     border-radius: var(--radius-lg);
+    height: auto;
+    object-fit: cover;
   }
   
   .hero__orb--1 {
