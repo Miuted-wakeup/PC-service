@@ -455,3 +455,32 @@ a:focus-visible, button:focus-visible {
     font-size: 1.4rem;
   }
 }
+
+/* === SECTION HEADERS === */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.section-tagline {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-blue-bright);
+  margin-bottom: 8px;
+}
+
+.light-mode .section-tagline {
+  color: var(--accent-blue);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
