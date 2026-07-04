@@ -47,22 +47,24 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
           ))}
         </div>
 
-        {/* Selector de Modo Claro/Oscuro Animado */}
-        <AnimatedThemeToggle 
-          isLightMode={isLightMode} 
-          toggleLightMode={toggleLightMode} 
-        />
+        {/* Controles de la derecha (Tema + Hamburguesa en móvil) */}
+        <div className="nav-controls">
+          <AnimatedThemeToggle 
+            isLightMode={isLightMode} 
+            toggleLightMode={toggleLightMode} 
+          />
 
-        {/* Botón de Menú Móvil */}
-        <button 
-          className="nav-mobile-toggle" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Abrir menú de navegación"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+          {/* Botón de Menú Móvil */}
+          <button 
+            className="nav-mobile-toggle" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Abrir menú de navegación"
+          >
+            <svg fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </nav>
 
       {/* Menú Móvil Desplegable */}
