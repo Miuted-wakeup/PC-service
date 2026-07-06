@@ -41,10 +41,10 @@ const AboutMe = () => {
           <div className="about-card__content">
             <img 
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&h=200&auto=format&fit=crop" 
-              alt="Gustavo Salazar - Especialista en Hardware" 
+              alt="Muted - Especialista en Hardware" 
               className="about-card__avatar" 
             />
-            <h3 className="about-card__name">Gustavo Salazar</h3>
+            <h3 className="about-card__name">Muted</h3>
             <p className="about-card__role">Soporte Técnico & Integrador de PC</p>
             <p className="about-card__bio">
               Apasionado por la optimización extrema de sistemas, el armado de computadores gamer/estudio de alto rendimiento y el mantenimiento preventivo minucioso de hardware.
