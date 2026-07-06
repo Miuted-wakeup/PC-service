@@ -40,7 +40,7 @@ const AboutMe = () => {
 
           <div className="about-card__content">
             <img 
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&h=200&auto=format&fit=crop" 
+              src="/avatar.jpg" 
               alt="Muted - Especialista en Hardware" 
               className="about-card__avatar" 
             />
