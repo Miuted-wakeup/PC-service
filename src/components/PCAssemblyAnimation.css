@@ -1,0 +1,254 @@
+.canvas-scroll-section {
+  /* Reducimos la altura a 500vh para que requiera menos scroll para terminar */
+  height: 500vh;
+  position: relative;
+  background-color: var(--bg-deep);
+}
+
+.canvas-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* El Canvas de fondo (Ocupa la mitad derecha) */
+.pc-canvas {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  left: auto;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 80%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Contenedor de Texto Flotante (Se sobrepone al canvas) */
+.canvas-text-overlay {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* Texto a la izquierda, puedes centrarlo si lo prefieres */
+}
+
+.canvas-text-content {
+  max-width: 500px;
+  background: rgba(10, 14, 23, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.canvas-steps {
+  position: relative;
+  height: 420px;
+  margin-top: 30px;
+}
+
+.canvas-step-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(18, 18, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.step-card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.step-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.step-card-content {
+  padding: 28px 32px;
+}
+
+.step-card-content h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.step-card-content p {
+  color: #a0a0a0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* === FIGURAS GEOMÉTRICAS FLOTANTES === */
+.floating-shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  /* Sombra dorada tech */
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4)) drop-shadow(0 4px 15px rgba(251, 191, 36, 0.2));
+}
+
+.shape-tl {
+  top: 15%;
+  left: 2%;
+  width: 140px;
+  height: 140px;
+}
+
+.shape-br {
+  bottom: 10%;
+  right: 40%; /* Ajustado para que no se superponga al texto ni al PC */
+  width: 220px;
+  height: 220px;
+}
+
+/* Ajustes de sombras para modo claro */
+.light-mode .floating-shape {
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15)) drop-shadow(0 4px 15px rgba(251, 191, 36, 0.4));
+}
+
+/* === TEXTO LUMINOSO GIGANTE DE FONDO === */
+.background-glow-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25vw;
+  font-weight: 900;
+  color: transparent;
+  /* El efecto glow blanco/gris como en el sitio de referencia */
+  text-shadow: 0 0 100px rgba(255, 255, 255, 0.15), 0 0 50px rgba(255, 255, 255, 0.1);
+  -webkit-text-stroke: 4px rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  z-index: 1; /* Detrás del PC pero delante de las estrellas/orbes */
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.light-mode .background-glow-text {
+  text-shadow: 0 0 80px rgba(0, 0, 0, 0.1);
+  -webkit-text-stroke: 4px rgba(0, 0, 0, 0.3);
+}
+
+/* El Canvas que dibuja los fotogramas (ahora con Z-index alto) */
+.pc-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Delante del texto gigante y las figuras geométricas */
+  pointer-events: none;
+}
+
+/* =========================================
+   MÓVIL: DISEÑO SIMPLIFICADO Y LIGERO 
+   ========================================= */
+.mobile-assembly-section {
+  padding: 60px 0;
+  background-color: var(--bg-deep);
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-assembly-header {
+  margin-bottom: 40px;
+}
+
+.mobile-assembly-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.mobile-assembly-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+.light-mode .mobile-assembly-image {
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+}
+
+.mobile-assembly-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mobile-step {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.mobile-step h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.mobile-step p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Ocultar el layout móvil en PC por seguridad, 
+   aunque React ya gestiona esto, es una buena práctica defensiva. */
+@media (min-width: 768px) {
+  .mobile-assembly-section {
+    display: none;
+  }
+}
+
+/* Responsividad para móviles */
+@media (max-width: 992px) {
+  .pc-canvas {
+    width: 100%;
+    height: 50%;
+    top: 0;
+    right: 0;
+    transform: translateY(0);
+    object-fit: cover;
+  }
+  
+  .canvas-text-content {
+    max-width: 100%;
+    margin: 20px;
+    padding: 30px;
+    /* Ajuste para que el texto no tape el centro de la imagen en celular */
+    align-self: flex-end; 
+    margin-bottom: 50px;
+  }
+  
+  .canvas-sticky-container {
+    align-items: flex-end; /* Alineamos abajo en celular para ver el PC arriba */
+  }
+
+  .canvas-steps {
+    height: 160px;
+  }
+}

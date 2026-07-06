@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { AnimatedThemeToggle } from './AnimatedThemeToggle';
+import { Search } from 'lucide-react';
 import './Navbar.css';
 
-const Navbar = ({ isLightMode, toggleLightMode }) => {
+const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       const progress = totalScroll > 0 ? (window.scrollY / totalScroll) * 100 : 0;
       setScrollProgress(progress);
+      setIsScrolled(window.scrollY > 80);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -27,7 +29,7 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
 
   return (
     <>
-      <nav className="main-nav">
+      <nav className={`main-nav${isScrolled ? ' scrolled' : ''}`}>
         {/* Barra de Progreso */}
         <div 
           className="nav-progress" 
@@ -47,13 +49,13 @@ const Navbar = ({ isLightMode, toggleLightMode }) => {
           ))}
         </div>
 
-        {/* Controles de la derecha (Tema + Hamburguesa en móvil) */}
+        {/* Controles de la derecha (Hamburguesa en móvil) */}
         <div className="nav-controls">
-          <AnimatedThemeToggle 
-            isLightMode={isLightMode} 
-            toggleLightMode={toggleLightMode} 
-          />
-
+          <button className="nav-cta-btn">Solicitar Diagnóstico</button>
+          <button className="nav-icon-btn" aria-label="Buscar">
+            <Search size={20} />
+          </button>
+          
           {/* Botón de Menú Móvil */}
           <button 
             className="nav-mobile-toggle" 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FAQ.css';
+import { motion } from 'framer-motion';
 
 const faqs = [
   {
@@ -29,9 +30,15 @@ const faqs = [
   }
 ];
 
-const FAQItem = ({ faq, isOpen, onToggle }) => {
+const FAQItem = ({ faq, isOpen, onToggle, index }) => {
   return (
-    <div className={`faq__item ${isOpen ? 'faq__item--open' : ''}`}>
+    <motion.div 
+      className={`faq__item ${isOpen ? 'faq__item--open' : ''}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
       <button
         className="faq__question"
         onClick={onToggle}
@@ -51,7 +58,7 @@ const FAQItem = ({ faq, isOpen, onToggle }) => {
       >
         <p className="faq__answer-text">{faq.answer}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -65,7 +72,13 @@ const FAQ = () => {
   return (
     <section id="faq" className="faq">
       <div className="container">
-        <div className="faq__header">
+        <motion.div 
+          className="faq__header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="section-divider"></div>
           <h2 className="faq__title">
             Preguntas <span className="text-gradient">Frecuentes</span>
@@ -73,15 +86,16 @@ const FAQ = () => {
           <p className="faq__subtitle">
             Todo lo que necesitas saber antes de solicitar tu servicio.
           </p>
-        </div>
+        </motion.div>
 
         <div className="faq__list">
-          {faqs.map(faq => (
+          {faqs.map((faq, index) => (
             <FAQItem
               key={faq.id}
               faq={faq}
               isOpen={openId === faq.id}
               onToggle={() => handleToggle(faq.id)}
+              index={index}
             />
           ))}
         </div>

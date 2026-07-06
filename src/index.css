@@ -1,24 +1,24 @@
 :root {
-  /* Color System — Premium Dark Hardware (Mineral + Tech Gold) */
-  --bg-deep: #05070c;
-  --bg-surface: #0a0e17;
-  --bg-elevated: #0f1422;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
+  /* Color System — Lisuantech Style (Pure Dark + Fiery Orange) */
+  --bg-deep: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-elevated: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-muted: #525252;
   
-  /* Accent Palette */
-  --accent-blue: #fbbf24;
-  --accent-blue-bright: #f59e0b;
-  --accent-blue-glow: rgba(245, 158, 11, 0.22);
-  --accent-blue-subtle: rgba(251, 191, 36, 0.05);
-  --accent-cyan: #06b6d4;
-  --accent-violet: #8b5cf6;
+  /* Accent Palette (Fiery Orange) */
+  --accent-blue: #FF6B00; /* Reutilizando la variable pero es naranja */
+  --accent-blue-bright: #FF8C00;
+  --accent-blue-glow: rgba(255, 107, 0, 0.25);
+  --accent-blue-subtle: rgba(255, 107, 0, 0.05);
+  --accent-cyan: #FF4500;
+  --accent-violet: #FFB020;
   
-  /* Glass System */
-  --glass-bg: rgba(10, 14, 23, 0.75);
-  --glass-border: rgba(251, 191, 36, 0.08);
-  --glass-border-hover: rgba(251, 191, 36, 0.25);
+  /* Glass System (Dark with subtle white/gray borders) */
+  --glass-bg: rgba(15, 15, 15, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 107, 0, 0.4);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   
   /* Spacing */
@@ -146,9 +146,10 @@ a {
 
 /* === LIGHT MODE OVERRIDES === */
 .light-mode {
-  --bg-deep: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-elevated: #f1f5f9;
+  /* Igualando al fondo gris claro del video generado por IA */
+  --bg-deep: #e8eaec;
+  --bg-surface: #e8eaec;
+  --bg-elevated: #f1f3f5;
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #94a3b8;
@@ -228,6 +229,10 @@ a {
   font-family: var(--font-body);
   transition: background-color 0.3s ease;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .rainbow-btn-wrapper:hover .rainbow-btn {
@@ -293,65 +298,9 @@ a {
 
 /* === LAYOUT === */
 .container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* === NAVIGATION === */
-.main-nav {
-  position: fixed;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 28px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  border-radius: 100px;
-  width: auto;
-  white-space: nowrap;
-  background: rgba(10, 14, 23, 0.85);
-  border: 1px solid rgba(251, 191, 36, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-}
-
-.nav-brand {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 0.95rem;
-  color: var(--accent-blue) !important;
-  letter-spacing: 0.08em;
-}
-
-.nav-link {
-  color: var(--text-secondary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-blue);
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover, .nav-link:focus-visible {
-  color: #fff;
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  padding: 0 40px;
 }
 
 /* === ACCESSIBILITY === */
@@ -368,19 +317,6 @@ a:focus-visible, button:focus-visible {
   background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
   border-radius: 3px;
   margin: 0 auto 20px;
-}
-
-/* === NAV PROGRESS BAR === */
-.nav-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
-  z-index: 1;
-  box-shadow: 0 0 8px var(--accent-blue-glow);
-  transition: width 0.1s ease-out;
-  pointer-events: none;
 }
 
 /* === FLOATING WHATSAPP === */
@@ -431,17 +367,6 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 576px) {
   :root {
     --section-gap: 80px;
-  }
-  
-  .main-nav {
-    top: 10px;
-    padding: 10px 18px;
-    gap: 14px;
-    font-size: 0.82rem;
-  }
-  
-  .nav-brand {
-    font-size: 0.82rem;
   }
   
   .whatsapp-floating {

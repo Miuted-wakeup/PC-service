@@ -1,5 +1,6 @@
 import React from 'react';
 import './LatestWorks.css';
+import { motion } from 'framer-motion';
 
 const LatestWorks = () => {
   const works = [
@@ -25,18 +26,31 @@ const LatestWorks = () => {
 
   return (
     <section className="works-section" id="trabajos">
-      <div className="section-header">
+      <motion.div 
+        className="section-header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-tagline">Galería de Proyectos Recientes</span>
         <h2 className="section-title">Mis Creaciones</h2>
         <div className="section-divider"></div>
         <p className="section-description">
           Una muestra visual de mi trabajo minucioso: cada ensamble y optimización se realiza con la máxima precisión y componentes premium.
         </p>
-      </div>
+      </motion.div>
 
       <div className="works-accordion">
-        {works.map((work) => (
-          <div key={work.id} className="works-card-wrapper">
+        {works.map((work, index) => (
+          <motion.div 
+            key={work.id} 
+            className="works-card-wrapper"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.15 }}
+          >
             <img
               src={work.image}
               alt={work.title}
@@ -46,7 +60,7 @@ const LatestWorks = () => {
               <h3 className="works-card__title">{work.title}</h3>
               <p className="works-card__desc">{work.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

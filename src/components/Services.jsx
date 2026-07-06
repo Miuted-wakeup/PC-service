@@ -1,12 +1,14 @@
 import React from 'react';
 import './Services.css';
+import { motion } from 'framer-motion';
+import { Wrench, Monitor, HardDrive, Settings } from 'lucide-react';
 
 const services = [
   {
     id: 1,
     title: "Mantenimiento Preventivo",
     description: "Limpieza profunda, cambio de pasta térmica y optimización para evitar sobrecalentamientos y alargar la vida útil de tu equipo.",
-    icon: "🔧",
+    icon: <Wrench size={32} strokeWidth={1.5} />,
     tag: "Más Solicitado",
     time: "~1-2 horas"
   },
@@ -14,7 +16,7 @@ const services = [
     id: 2,
     title: "Armado de PCs Custom",
     description: "Ensamblaje profesional de computadores para Gaming, Diseño o Trabajo. Te asesoro en la compra de los mejores componentes.",
-    icon: "🖥️",
+    icon: <Monitor size={32} strokeWidth={1.5} />,
     tag: "Gaming / Oficina",
     time: "~2-3 horas"
   },
@@ -22,7 +24,7 @@ const services = [
     id: 3,
     title: "Sistemas Operativos",
     description: "Instalación desde cero, formateo y actualización de Windows, solucionando problemas de lentitud y pantallazos azules.",
-    icon: "💿",
+    icon: <HardDrive size={32} strokeWidth={1.5} />,
     tag: "Windows 10 / 11",
     time: "~2 horas"
   },
@@ -30,7 +32,7 @@ const services = [
     id: 4,
     title: "Software y Activaciones",
     description: "Instalación y configuración de Office, Antivirus, y cualquier programa esencial para que empieces a trabajar de inmediato.",
-    icon: "⚙️",
+    icon: <Settings size={32} strokeWidth={1.5} />,
     tag: "Microsoft Office",
     time: "~30-60 min"
   }
@@ -40,7 +42,13 @@ const Services = () => {
   return (
     <section id="servicios" className="services">
       <div className="container">
-        <div className="services__header">
+        <motion.div 
+          className="services__header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="section-divider"></div>
           <h2 className="services__title">
             Servicios <span className="text-gradient">Especializados</span>
@@ -48,14 +56,17 @@ const Services = () => {
           <p className="services__subtitle">
             Soluciones rápidas y efectivas para que tu tecnología nunca se detenga.
           </p>
-        </div>
+        </motion.div>
         
         <div className="services__grid">
           {services.map((service, index) => (
-            <article 
+            <motion.article 
               key={service.id} 
               className="svc-card glass-panel"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
               <div className="svc-card__top">
                 <div className="svc-card__icon">{service.icon}</div>
@@ -67,7 +78,7 @@ const Services = () => {
                 <span className="svc-card__time">⏱ {service.time}</span>
               </div>
               <div className="svc-card__shine" aria-hidden="true"></div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

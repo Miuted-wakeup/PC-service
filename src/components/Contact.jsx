@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import efectivoImg from '../assets/efectivo.png';
 import nequiImg from '../assets/nequi.png';
+import { MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import './Contact.css';
 
 const Contact = () => {
@@ -18,7 +20,13 @@ const Contact = () => {
   return (
     <section id="contacto" className="contact">
       <div className="container">
-        <div className="contact__card">
+        <motion.div 
+          className="contact__card"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+        >
           <div className="contact__corner contact__corner--tl" aria-hidden="true"></div>
           <div className="contact__corner contact__corner--br" aria-hidden="true"></div>
           
@@ -92,10 +100,10 @@ const Contact = () => {
             </div>
 
             <a href={getUpdatedWhatsappUrl()} target="_blank" rel="noopener noreferrer" className="rainbow-btn-wrapper contact__rainbow-btn">
-              <button className="rainbow-btn">💬 Agendar Orden de Servicio</button>
+              <button className="rainbow-btn"><MessageCircle size={18} /> Agendar Orden de Servicio</button>
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
