@@ -8,6 +8,7 @@ import HowItWorks from './components/HowItWorks';
 import ValueProposition from './components/ValueProposition';
 import AboutMe from './components/AboutMe';
 import FAQ from './components/FAQ';
+import WebDevPromo from './components/WebDevPromo';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { MessageCircle } from 'lucide-react';
@@ -31,6 +32,7 @@ function App() {
         <ValueProposition />
         <AboutMe />
         <FAQ />
+        <WebDevPromo whatsappUrl={WHATSAPP_URL} />
         <Contact />
       </main>
 
