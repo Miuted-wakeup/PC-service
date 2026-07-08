@@ -38,7 +38,7 @@ const services = [
     icon: <Settings size={32} strokeWidth={1.5} />,
     tag: "Microsoft Office",
     time: "~30-60 min",
-    price: "Desde $20.000"
+    price: null
   }
 ];
 
@@ -101,7 +101,7 @@ const Services = () => {
               <div className="svc-card__footer">
                 <span className="svc-card__time">⏱ {service.time}</span>
                 <div className="svc-card__footer-right">
-                  <span className="svc-card__price">{service.price}</span>
+                  {service.price && <span className="svc-card__price">{service.price}</span>}
                   <a 
                     href={`https://wa.me/573137148566?text=${encodeURIComponent(`Hola, me interesa el servicio de ${service.title}`)}`}
                     className="svc-card__cta-btn" 
