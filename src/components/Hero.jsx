@@ -21,11 +21,11 @@ const Hero = ({ whatsappUrl }) => {
       <div className="hero__inner">
         <div className="hero__content">
           <h1 className="hero__title">
-            Devuélvele la vida<br />a tu <span className="text-gradient">PC</span>
+            ¿Tu PC está <span className="text-gradient">lenta</span><br />o presenta fallas?
           </h1>
           
           <p className="hero__subtitle">
-            Servicio técnico especializado y ensambles de alto rendimiento. Optimizamos tu equipo al máximo eliminando lentitud y cuellos de botella con precisión experta.
+            Servicio técnico a domicilio en Cali. Reparación, mantenimiento, formateo y armado de PCs con atención rápida y diagnóstico transparente.
           </p>
           
           <div className="hero__stats">

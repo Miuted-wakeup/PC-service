@@ -1,7 +1,7 @@
 import React from 'react';
 import './Services.css';
 import { motion } from 'framer-motion';
-import { Wrench, Monitor, HardDrive, Settings } from 'lucide-react';
+import { Wrench, Monitor, HardDrive, Settings, ShieldCheck } from 'lucide-react';
 
 const services = [
   {
@@ -10,7 +10,8 @@ const services = [
     description: "Limpieza profunda, cambio de pasta térmica y optimización para evitar sobrecalentamientos y alargar la vida útil de tu equipo.",
     icon: <Wrench size={32} strokeWidth={1.5} />,
     tag: "Más Solicitado",
-    time: "~1-2 horas"
+    time: "~1-2 horas",
+    price: "Desde $35.000"
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ const services = [
     description: "Ensamblaje profesional de computadores para Gaming, Diseño o Trabajo. Te asesoro en la compra de los mejores componentes.",
     icon: <Monitor size={32} strokeWidth={1.5} />,
     tag: "Gaming / Oficina",
-    time: "~2-3 horas"
+    time: "~2-3 horas",
+    price: "Desde $80.000"
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ const services = [
     description: "Instalación desde cero, formateo y actualización de Windows, solucionando problemas de lentitud y pantallazos azules.",
     icon: <HardDrive size={32} strokeWidth={1.5} />,
     tag: "Windows 10 / 11",
-    time: "~2 horas"
+    time: "~2 horas",
+    price: "Desde $40.000"
   },
   {
     id: 4,
@@ -34,7 +37,8 @@ const services = [
     description: "Instalación y configuración de Office, Antivirus, y cualquier programa esencial para que empieces a trabajar de inmediato.",
     icon: <Settings size={32} strokeWidth={1.5} />,
     tag: "Microsoft Office",
-    time: "~30-60 min"
+    time: "~30-60 min",
+    price: "Desde $20.000"
   }
 ];
 
@@ -58,6 +62,26 @@ const Services = () => {
           </p>
         </motion.div>
         
+        <motion.div 
+          className="privacy-banner glass-panel"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="privacy-banner__icon">
+            <ShieldCheck size={40} color="var(--accent-cyan)" />
+          </div>
+          <div className="privacy-banner__content">
+            <h3>Tu información está 100% segura</h3>
+            <p>
+              ✔ No revisamos archivos personales &nbsp; | &nbsp; 
+              ✔ Tus contraseñas permanecen privadas &nbsp; | &nbsp; 
+              ✔ Respaldamos tu información antes de formatear
+            </p>
+          </div>
+        </motion.div>
+        
         <div className="services__grid">
           {services.map((service, index) => (
             <motion.article 
@@ -76,6 +100,7 @@ const Services = () => {
               <p className="svc-card__desc">{service.description}</p>
               <div className="svc-card__footer">
                 <span className="svc-card__time">⏱ {service.time}</span>
+                <span className="svc-card__price">{service.price}</span>
               </div>
               <div className="svc-card__shine" aria-hidden="true"></div>
             </motion.article>

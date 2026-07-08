@@ -20,6 +20,40 @@
   margin: 0 auto;
 }
 
+/* === PRIVACY BANNER === */
+.privacy-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(10, 14, 23, 0.7);
+  border: 1px solid rgba(251, 191, 36, 0.1);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-bottom: 48px;
+}
+
+.privacy-banner__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(251, 191, 36, 0.05);
+  border-radius: 50%;
+  padding: 16px;
+}
+
+.privacy-banner__content h3 {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.privacy-banner__content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
 /* === GRID === */
 .services__grid {
   display: grid;
@@ -148,6 +182,9 @@
   padding-top: 16px;
   border-top: 1px solid rgba(251, 191, 36, 0.08);
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .svc-card__time {
@@ -162,12 +199,30 @@
   color: var(--accent-blue-bright);
 }
 
+.svc-card__price {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(45, 212, 191, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
 @keyframes cardReveal {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 992px) {
+  .privacy-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 24px;
+  }
+}
+
 @media (max-width: 768px) {
   .services__grid {
     grid-template-columns: 1fr;
