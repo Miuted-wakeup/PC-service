@@ -231,6 +231,13 @@
   color: #fff;
 }
 
+/* Hide CTA on PC, keep it for Mobile */
+@media (min-width: 769px) {
+  .svc-card__cta-btn {
+    display: none;
+  }
+}
+
 @keyframes cardReveal {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
