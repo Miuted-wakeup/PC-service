@@ -215,20 +215,22 @@
 }
 
 .svc-card__cta-btn {
-  background: rgba(37, 211, 102, 0.15);
-  color: #25D366;
-  border: 1px solid rgba(37, 211, 102, 0.3);
-  padding: 6px 14px;
+  background: transparent;
+  color: var(--accent-cyan);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  padding: 5px 12px;
   border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .svc-card__cta-btn:hover {
-  background: #25D366;
-  color: #fff;
+  background: rgba(45, 212, 191, 0.1);
+  border-color: rgba(45, 212, 191, 0.5);
+  color: var(--accent-cyan);
 }
 
 /* Hide CTA on PC, keep it for Mobile */
