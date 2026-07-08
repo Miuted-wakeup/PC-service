@@ -17,7 +17,7 @@ const PCAssemblyAnimation = () => {
   const [images, setImages] = useState([]);
   
   useEffect(() => {
-    if (!useRealImages) return;
+    if (!useRealImages || isMobile) return;
 
     const loadedImages = [];
     let loadedCount = 0;
@@ -37,7 +37,7 @@ const PCAssemblyAnimation = () => {
       loadedImages.push(img);
     }
     setImages(loadedImages);
-  }, [useRealImages, TOTAL_FRAMES]);
+  }, [useRealImages, TOTAL_FRAMES, isMobile]);
 
   // --- TRACKING DEL SCROLL ---
   const { scrollYProgress } = useScroll({

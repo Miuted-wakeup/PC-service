@@ -20,7 +20,7 @@ const Footer = () => {
             </a>
             <div className="footer-logo-divider"></div>
             <p className="footer-brand-desc">
-              Servicios profesionales de mantenimiento, reparación y optimización de computadores. Más de 100 equipos optimizados con éxito.
+              Servicios profesionales de mantenimiento, reparación y armado de computadores con diagnóstico transparente y garantía a domicilio.
             </p>
           </div>
 
