@@ -6,29 +6,29 @@ import { Briefcase, ShieldCheck, Zap, HeartHandshake } from 'lucide-react';
 const values = [
   {
     id: 1,
-    title: "Experiencia Comprobada",
-    description: "Años de experiencia en diagnóstico y solución de problemas técnicos complejos en todo tipo de equipos.",
+    title: "No pagas hasta quedar satisfecho",
+    description: "Revisas tu equipo y pruebas que todo funcione perfecto antes de realizar cualquier pago.",
     icon: <Briefcase size={32} strokeWidth={1.5} />,
     number: "01"
   },
   {
     id: 2,
-    title: "Garantía de Servicio",
-    description: "Cada mantenimiento y reparación cuenta con garantía. Tu equipo queda en perfectas condiciones, asegurado.",
+    title: "Garantía en cada servicio",
+    description: "Cada mantenimiento, armado o reparación está cubierto por una garantía para tu total tranquilidad.",
     icon: <ShieldCheck size={32} strokeWidth={1.5} />,
     number: "02"
   },
   {
     id: 3,
-    title: "Rapidez y Eficiencia",
-    description: "Entiendo que tu PC es tu herramienta de trabajo o entretenimiento, por eso optimizo los tiempos de entrega.",
+    title: "Respaldo seguro de datos",
+    description: "Cero riesgo de pérdida de información. Hacemos backups completos antes de cualquier formateo.",
     icon: <Zap size={32} strokeWidth={1.5} />,
     number: "03"
   },
   {
     id: 4,
-    title: "Atención Personalizada",
-    description: "Te explico detalladamente qué necesita tu equipo y por qué, sin tecnicismos confusos.",
+    title: "Diagnóstico sin tecnicismos",
+    description: "Te explico exactamente qué le pasa a tu equipo de forma clara, directa y sin palabras complicadas.",
     icon: <HeartHandshake size={32} strokeWidth={1.5} />,
     number: "04"
   }

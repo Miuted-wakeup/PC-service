@@ -1,7 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ShieldCheck, MessageCircle, Zap, Star } from 'lucide-react';
+import { ShieldCheck, MessageCircle, Zap, Star, MapPin, Search, Clock } from 'lucide-react';
 import useIsMobile from '../hooks/useIsMobile';
 
 const Hero = ({ whatsappUrl }) => {
@@ -25,21 +25,21 @@ const Hero = ({ whatsappUrl }) => {
           </h1>
           
           <p className="hero__subtitle">
-            Servicio técnico a domicilio en Cali. Reparación, mantenimiento, formateo y armado de PCs con atención rápida y diagnóstico transparente.
+            Recupera el rendimiento de tu computador sin salir de casa. Diagnóstico transparente, mantenimiento profesional y atención a domicilio en Cali.
           </p>
           
           <div className="hero__stats">
-            <div className="hero__stat-card">
-              <span className="hero__stat-number">100<span className="text-small">+</span></span>
-              <span className="hero__stat-label">REPARADOS</span>
+            <div className="hero__stat-card hero__trust-card">
+              <Search className="hero__trust-icon" size={24} />
+              <span className="hero__trust-label">Diagnóstico<br/>Transparente</span>
             </div>
-            <div className="hero__stat-card">
-              <span className="hero__stat-number">24<span className="text-small">H</span></span>
-              <span className="hero__stat-label">EXPRESS</span>
+            <div className="hero__stat-card hero__trust-card">
+              <MapPin className="hero__trust-icon" size={24} />
+              <span className="hero__trust-label">Atención a<br/>Domicilio</span>
             </div>
-            <div className="hero__stat-card">
-              <span className="hero__stat-number">100<span className="text-small">%</span></span>
-              <span className="hero__stat-label">GARANTÍA</span>
+            <div className="hero__stat-card hero__trust-card">
+              <ShieldCheck className="hero__trust-icon" size={24} />
+              <span className="hero__trust-label">Garantía<br/>Escrita</span>
             </div>
           </div>
 

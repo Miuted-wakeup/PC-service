@@ -115,6 +115,26 @@
   font-weight: 600;
 }
 
+/* Trust Cards (Replaces numbers) */
+.hero__trust-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.hero__trust-icon {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.hero__trust-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2;
+}
+
 /* White Pill Button */
 .hero__btn-pill {
   display: inline-flex;
