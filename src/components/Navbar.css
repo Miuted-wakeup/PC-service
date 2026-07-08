@@ -87,40 +87,6 @@
   gap: 20px;
 }
 
-.nav-cta-btn {
-  background: #FF6B00;
-  color: white;
-  border: none;
-  border-radius: 100px;
-  padding: 10px 28px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.nav-cta-btn:hover {
-  background: #FF8C00;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.4);
-}
-
-.nav-icon-btn {
-  background: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  transition: color 0.3s ease;
-}
-
-.nav-icon-btn:hover {
-  color: #FF6B00;
-}
-
 /* === THEME TOGGLE BUTTON === */
 .theme-toggle-btn {
   background: transparent;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Search } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -51,10 +50,6 @@ const Navbar = () => {
 
         {/* Controles de la derecha (Hamburguesa en móvil) */}
         <div className="nav-controls">
-          <button className="nav-cta-btn">Solicitar Diagnóstico</button>
-          <button className="nav-icon-btn" aria-label="Buscar">
-            <Search size={20} />
-          </button>
           
           {/* Botón de Menú Móvil */}
           <button 
