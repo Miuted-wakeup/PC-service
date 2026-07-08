@@ -357,6 +357,11 @@ a:focus-visible, button:focus-visible {
   50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.55), 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 0 8px rgba(37, 211, 102, 0.08); }
 }
 
+/* Sticky Mobile Bar */
+.whatsapp-sticky-mobile {
+  display: none;
+}
+
 /* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   .hide-mobile {
@@ -368,16 +373,31 @@ a:focus-visible, button:focus-visible {
   :root {
     --section-gap: 80px;
   }
-  
   .whatsapp-floating {
-    bottom: 16px;
-    right: 16px;
-    width: 52px;
-    height: 52px;
+    display: none !important;
   }
   
-  .whatsapp-float-icon {
-    font-size: 1.4rem;
+  .whatsapp-sticky-mobile {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    z-index: 1000;
+    text-decoration: none;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  body {
+    padding-bottom: 60px; /* Space for the sticky bar */
   }
 }
 

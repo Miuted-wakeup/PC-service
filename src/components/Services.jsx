@@ -100,7 +100,17 @@ const Services = () => {
               <p className="svc-card__desc">{service.description}</p>
               <div className="svc-card__footer">
                 <span className="svc-card__time">⏱ {service.time}</span>
-                <span className="svc-card__price">{service.price}</span>
+                <div className="svc-card__footer-right">
+                  <span className="svc-card__price">{service.price}</span>
+                  <a 
+                    href={`https://wa.me/573137148566?text=${encodeURIComponent(`Hola, me interesa el servicio de ${service.title}`)}`}
+                    className="svc-card__cta-btn" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Solicitar
+                  </a>
+                </div>
               </div>
               <div className="svc-card__shine" aria-hidden="true"></div>
             </motion.article>

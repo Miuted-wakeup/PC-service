@@ -208,6 +208,29 @@
   border-radius: 4px;
 }
 
+.svc-card__footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.svc-card__cta-btn {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.svc-card__cta-btn:hover {
+  background: #25D366;
+  color: #fff;
+}
+
 @keyframes cardReveal {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
