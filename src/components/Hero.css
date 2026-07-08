@@ -135,30 +135,28 @@
   line-height: 1.2;
 }
 
-/* White Pill Button */
+/* Main CTA Button */
 .hero__btn-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  color: #000000;
+  background: linear-gradient(135deg, #ff6b00, #ff8c00);
+  color: #ffffff;
   padding: 14px 36px;
   border-radius: 100px;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.8),
-    0 0 60px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero__btn-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 0 30px rgba(255, 255, 255, 1),
-    0 0 80px rgba(255, 255, 255, 0.5);
-  background: #fdfdfd;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 107, 0, 0.4);
+  background: linear-gradient(135deg, #ff8c00, #ff6b00);
 }
 
 /* === VISUAL / IMAGE === */
@@ -260,6 +258,10 @@
     padding: 8px 10px;
     gap: 8px;
     flex: 1 1 45%;
+  }
+  
+  .hero__trust-card:last-child {
+    justify-content: center;
   }
   
   .hero__trust-label {
