@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PCAssemblyAnimation from './components/PCAssemblyAnimation';
@@ -21,6 +21,21 @@ const WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(DE
 
 function App() {
   const isMobile = useIsMobile();
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Mostrar la barra verde pegajosa solo después de bajar del Hero
+      if (window.scrollY > 450) {
+        setShowSticky(true);
+      } else {
+        setShowSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="app-container">
@@ -45,7 +60,7 @@ function App() {
         <span className="whatsapp-float-icon"><MessageCircle size={28} /></span>
       </a>
 
-      <a href={WHATSAPP_URL} className="whatsapp-sticky-mobile" target="_blank" rel="noopener noreferrer">
+      <a href={WHATSAPP_URL} className={`whatsapp-sticky-mobile ${showSticky ? 'visible' : ''}`} target="_blank" rel="noopener noreferrer">
         <MessageCircle size={24} />
         <span>Solicitar Diagnóstico por WhatsApp</span>
       </a>
