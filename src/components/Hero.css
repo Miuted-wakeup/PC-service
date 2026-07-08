@@ -251,6 +251,21 @@
     margin-bottom: 20px;
   }
   
+  .hero__stats {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .hero__trust-card {
+    padding: 8px 10px;
+    gap: 8px;
+    flex: 1 1 45%;
+  }
+  
+  .hero__trust-label {
+    font-size: 0.75rem;
+  }
+  
   .hero__title {
     font-size: 2.2rem;
     margin-bottom: 16px;

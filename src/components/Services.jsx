@@ -74,11 +74,11 @@ const Services = () => {
           </div>
           <div className="privacy-banner__content">
             <h3>Tu información está 100% segura</h3>
-            <p>
-              ✔ No revisamos archivos personales &nbsp; | &nbsp; 
-              ✔ Tus contraseñas permanecen privadas &nbsp; | &nbsp; 
-              ✔ Respaldamos tu información antes de formatear
-            </p>
+            <ul className="privacy-banner__list">
+              <li>✔ No revisamos archivos personales</li>
+              <li>✔ Tus contraseñas permanecen privadas</li>
+              <li>✔ Respaldamos tu información antes de formatear</li>
+            </ul>
           </div>
         </motion.div>
         
