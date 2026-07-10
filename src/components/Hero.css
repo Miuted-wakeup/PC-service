@@ -3,6 +3,8 @@
   overflow: hidden;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-image: url('/background.jpg');
   background-size: cover;
@@ -387,4 +389,67 @@
 
 .light-mode .hero__glow {
   background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+}
+
+/* === MICRO TRUST BAR === */
+.hero__trust-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px 24px;
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.01);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  width: 100%;
+}
+
+.trust-bar__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.trust-bar__icon {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+/* Mobile responsive for trust bar */
+@media (max-width: 768px) {
+  .hero__trust-bar {
+    margin-top: 30px;
+    padding: 12px 16px;
+    gap: 12px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero__trust-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 8px;
+    padding: 12px 8px;
+  }
+  
+  .trust-bar__item {
+    font-size: 0.78rem;
+    justify-content: flex-start;
+  }
+}
+
+/* Light mode adjustments for trust bar */
+.light-mode .hero__trust-bar {
+  background: rgba(15, 23, 42, 0.01);
+  border-top-color: rgba(15, 23, 42, 0.06);
+  border-bottom-color: rgba(15, 23, 42, 0.06);
+}
+
+.light-mode .trust-bar__item {
+  color: #475569;
 }

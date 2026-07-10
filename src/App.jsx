@@ -43,12 +43,12 @@ function App() {
 
       <main>
         <Hero whatsappUrl={WHATSAPP_URL} />
-        {!isMobile && <PCAssemblyAnimation />}
         <Services />
         <LatestWorks />
+        {!isMobile && <PCAssemblyAnimation />}
         <HowItWorks whatsappUrl={WHATSAPP_URL} />
-        <ValueProposition />
         <AboutMe />
+        <ValueProposition />
         <FAQ />
         <WebDevPromo whatsappUrl={WHATSAPP_URL} />
         <Contact />

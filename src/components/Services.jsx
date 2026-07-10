@@ -1,7 +1,7 @@
 import React from 'react';
 import './Services.css';
 import { motion } from 'framer-motion';
-import { Wrench, Monitor, HardDrive, Settings, ShieldCheck } from 'lucide-react';
+import { Wrench, Monitor, HardDrive, Settings, ShieldCheck, MessageCircle } from 'lucide-react';
 
 const services = [
   {
@@ -43,6 +43,9 @@ const services = [
 ];
 
 const Services = () => {
+  const CUSTOM_WA_MESSAGE = "Hola, vi tu página web pero no encontré un servicio que describa exactamente mi problema. Quisiera saber si puedes ayudarme.";
+  const customWhatsappUrl = `https://wa.me/573137148566?text=${encodeURIComponent(CUSTOM_WA_MESSAGE)}`;
+
   return (
     <section id="servicios" className="services">
       <div className="container">
@@ -116,6 +119,31 @@ const Services = () => {
             </motion.article>
           ))}
         </div>
+
+        {/* Banner de ayuda personalizada */}
+        <motion.div 
+          className="services__custom-cta glass-panel"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="custom-cta__content">
+            <h3 className="custom-cta__title">¿Tu caso es diferente?</h3>
+            <p className="custom-cta__desc">
+              Escríbeme por WhatsApp y revisamos la mejor solución para tu equipo sin compromiso.
+            </p>
+          </div>
+          <a 
+            href={customWhatsappUrl} 
+            className="custom-cta__btn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={18} />
+            <span>Revisar mi caso</span>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

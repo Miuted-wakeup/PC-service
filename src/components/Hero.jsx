@@ -66,6 +66,26 @@ const Hero = ({ whatsappUrl }) => {
           />
         </div>
       </div>
+
+      {/* Micro-barra de confianza */}
+      <div className="hero__trust-bar">
+        <div className="trust-bar__item">
+          <MapPin size={16} className="trust-bar__icon" />
+          <span>Atención a domicilio en Cali</span>
+        </div>
+        <div className="trust-bar__item">
+          <Star size={16} className="trust-bar__icon" />
+          <span>+15 computadores reparados</span>
+        </div>
+        <div className="trust-bar__item">
+          <ShieldCheck size={16} className="trust-bar__icon" />
+          <span>Garantía por escrito</span>
+        </div>
+        <div className="trust-bar__item">
+          <Zap size={16} className="trust-bar__icon" />
+          <span>Respuesta en minutos</span>
+        </div>
+      </div>
     </section>
   );
 };
