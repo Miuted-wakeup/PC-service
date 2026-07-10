@@ -431,15 +431,16 @@
 
 @media (max-width: 576px) {
   .hero__trust-bar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 8px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 16px;
     padding: 12px 8px;
   }
   
   .trust-bar__item {
     font-size: 0.78rem;
-    justify-content: flex-start;
+    flex: 0 1 auto;
   }
 }
 

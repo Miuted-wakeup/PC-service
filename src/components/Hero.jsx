@@ -78,10 +78,6 @@ const Hero = ({ whatsappUrl }) => {
           <span>+15 computadores reparados</span>
         </div>
         <div className="trust-bar__item">
-          <ShieldCheck size={16} className="trust-bar__icon" />
-          <span>Garantizado</span>
-        </div>
-        <div className="trust-bar__item">
           <Zap size={16} className="trust-bar__icon" />
           <span>Respuesta en minutos</span>
         </div>
