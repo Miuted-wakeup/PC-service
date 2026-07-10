@@ -39,7 +39,7 @@ const Hero = ({ whatsappUrl }) => {
             </div>
             <div className="hero__stat-card hero__trust-card">
               <ShieldCheck className="hero__trust-icon" size={24} />
-              <span className="hero__trust-label">Garantía<br/>Escrita</span>
+              <span className="hero__trust-label">Garantizado</span>
             </div>
           </div>
 
