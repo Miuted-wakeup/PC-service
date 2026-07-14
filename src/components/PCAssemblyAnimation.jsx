@@ -13,30 +13,38 @@ const PCAssemblyAnimation = () => {
   // Activado para leer desde public/frames/
   const useRealImages = true; 
 
-  // Pre-carga de imágenes
-  const [images, setImages] = useState([]);
+  // Pre-carga de imágenes optimizada (Elimina lag)
+  const imagesRef = useRef([]);
   
   useEffect(() => {
     if (!useRealImages || isMobile) return;
 
-    const loadedImages = [];
-    let loadedCount = 0;
-
-    for (let i = 1; i <= TOTAL_FRAMES; i++) {
-      const img = new Image();
-      // Asume que las imágenes se llaman 0001.webp, 0002.webp, etc.
-      // y están en la carpeta public/frames/
-      const frameNumber = i.toString().padStart(4, '0');
-      img.src = `/frames/${frameNumber}.webp`;
-      
-      img.onload = () => {
-        loadedCount++;
-        // Podríamos manejar un estado de "loading" si es necesario
-      };
-      
-      loadedImages.push(img);
+    // Inicializar el arreglo de imágenes si está vacío
+    if (imagesRef.current.length === 0) {
+      imagesRef.current = new Array(TOTAL_FRAMES).fill(null);
     }
-    setImages(loadedImages);
+
+    // 1. Carga prioritaria: Los primeros 30 fotogramas se cargan inmediatamente
+    for (let i = 0; i < 30; i++) {
+      if (imagesRef.current[i]) continue;
+      const img = new Image();
+      const frameNumber = (i + 1).toString().padStart(4, '0');
+      img.src = `/frames/${frameNumber}.webp`;
+      img.onload = () => { imagesRef.current[i] = img; };
+    }
+
+    // 2. Carga en segundo plano: El resto se pide 1 segundo después para no asfixiar la red y RAM al inicio
+    const timeoutId = setTimeout(() => {
+      for (let i = 30; i < TOTAL_FRAMES; i++) {
+        if (imagesRef.current[i]) continue;
+        const img = new Image();
+        const frameNumber = (i + 1).toString().padStart(4, '0');
+        img.src = `/frames/${frameNumber}.webp`;
+        img.onload = () => { imagesRef.current[i] = img; };
+      }
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
   }, [useRealImages, TOTAL_FRAMES, isMobile]);
 
   // --- TRACKING DEL SCROLL ---
@@ -64,26 +72,34 @@ const PCAssemblyAnimation = () => {
     // Limpiar canvas
     ctx.clearRect(0, 0, width, height);
 
-    if (useRealImages && images[frameIndex]) {
-      // Dibujar la imagen real si está disponible
-      // Manteniendo la proporción (object-fit: contain) y posicionándolo a la derecha
-      const img = images[frameIndex];
-      if (img.complete) {
+    if (useRealImages) {
+      // Lógica Anti-Lag: Buscar la imagen solicitada. Si no existe, buscar hacia atrás la última cargada.
+      let imgToDraw = imagesRef.current[frameIndex];
+      
+      if (!imgToDraw || !imgToDraw.complete) {
+        for (let i = frameIndex - 1; i >= 0; i--) {
+          if (imagesRef.current[i] && imagesRef.current[i].complete) {
+            imgToDraw = imagesRef.current[i];
+            break;
+          }
+        }
+      }
+
+      // Dibujar la imagen encontrada (real o fallback)
+      if (imgToDraw && imgToDraw.complete) {
         // Hacemos que ocupe el 85% de la altura disponible para que se vea grande pero sin cortarse
-        const scale = (height * 0.85) / img.height;
-        const targetWidth = img.width * scale;
-        const targetHeight = img.height * scale;
+        const scale = (height * 0.85) / imgToDraw.height;
+        const targetWidth = imgToDraw.width * scale;
+        const targetHeight = imgToDraw.height * scale;
         
         // Centrar verticalmente
         const posY = (height - targetHeight) / 2;
         
         // Posicionar en la mitad derecha de la pantalla (aprox 70% del ancho total)
-        // para dejar espacio al texto de la izquierda
-        // En móviles (width < 768) lo centramos
-        const isMobile = width < 768;
-        const posX = isMobile ? (width - targetWidth) / 2 : (width * 0.7) - (targetWidth / 2);
+        const isMobileScreen = width < 768;
+        const posX = isMobileScreen ? (width - targetWidth) / 2 : (width * 0.7) - (targetWidth / 2);
 
-        ctx.drawImage(img, 0, 0, img.width, img.height, posX, posY, targetWidth, targetHeight);
+        ctx.drawImage(imgToDraw, 0, 0, imgToDraw.width, imgToDraw.height, posX, posY, targetWidth, targetHeight);
       }
     } else {
       // DIBUJO DE PLACEHOLDER (Para pruebas)
@@ -166,8 +182,7 @@ const PCAssemblyAnimation = () => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [useRealImages, images]); // Se re-renderiza si cambian las imágenes o el estado de prueba
-
+  }, [useRealImages]); // Se eliminó 'images' de las dependencias ya que usamos ref
 
   // --- ANIMACIONES DEL CANVAS (Aparición) ---
   const canvasOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1]);
