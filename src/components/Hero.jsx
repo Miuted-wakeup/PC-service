@@ -1,16 +1,11 @@
 import React from 'react';
 import './Hero.css';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ShieldCheck, MessageCircle, Zap, Star, MapPin, Search, Clock } from 'lucide-react';
 import useIsMobile from '../hooks/useIsMobile';
 
 const Hero = ({ whatsappUrl }) => {
   const isMobile = useIsMobile();
-  const { scrollY } = useScroll();
-  
-  // Animación Parallax (solo PC)
-  const heroImageY = useTransform(scrollY, [0, 800], [0, 500]);
-  const heroImageOpacity = useTransform(scrollY, [400, 800], [1, 0]);
 
   // Ya no usamos import heroImage from '../assets/hero-pc.png';
   // Usamos la imagen final del ensamble (0213.webp) desde la carpeta public
@@ -58,11 +53,9 @@ const Hero = ({ whatsappUrl }) => {
             width="500"
             height="500" 
             loading="eager"
-            initial={isMobile ? { opacity: 0, y: 50 } : false}
-            whileInView={isMobile ? { opacity: 1, y: 0 } : undefined}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            style={isMobile ? {} : { y: heroImageY, opacity: heroImageOpacity }}
           />
         </div>
       </div>
