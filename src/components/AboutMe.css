@@ -1,179 +1,243 @@
-/* === ABOUT SECTION === */
 .about-section {
-  padding: var(--section-gap) 0;
-  display: flex;
-  flex-direction: column;
+  padding: 120px 0;
+  background-color: var(--bg-deep);
+  position: relative;
+  overflow: visible; /* Permitir que el badge sobresalga sin recortarse */
+}
+
+.about-grid-premium {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
   align-items: center;
   position: relative;
+}
+
+/* Columna Izquierda: Foto y Badge Superpuesto */
+.about-visual-premium {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+}
+
+.about-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border: 8px solid #ffffff; /* Marco blanco característico de la captura */
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+  background: #fff;
   z-index: 1;
 }
 
-.about-container {
+.about-photo-premium {
   width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: center;
-  padding: 0 20px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(1) contrast(1.1); /* Efecto blanco y negro de alto contraste */
+  transition: filter 0.5s ease;
 }
 
-/* === INTERACTIVE CARD === */
-.about-card {
-  position: relative;
-  width: 100%;
-  max-width: 360px;
-  height: 420px;
-  border-radius: var(--radius-xl);
-  padding: 1px;
-  background: rgba(10, 14, 23, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(251, 191, 36, 0.1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+.about-photo-frame:hover .about-photo-premium {
+  filter: grayscale(0) contrast(1); /* Devuelve el color completo original */
 }
 
-.light-mode .about-card {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.06);
-}
-
-.about-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(251, 191, 36, 0.35);
-  box-shadow: 
-    0 20px 45px rgba(0, 0, 0, 0.7),
-    0 0 30px rgba(251, 191, 36, 0.12);
-}
-
-.light-mode .about-card:hover {
-  border-color: rgba(37, 99, 235, 0.25);
-  box-shadow: 
-    0 20px 40px rgba(15, 23, 42, 0.08),
-    0 0 30px rgba(37, 99, 235, 0.06);
-}
-
-/* Mouse cursor glow tracking */
-.about-card__glow {
-  pointer-events: none;
-  filter: blur(48px);
-  border-radius: 50%;
-  background: linear-gradient(135deg, #fbbf24, #8b5cf6, #06b6d4);
-  width: 240px;
-  height: 240px;
+/* Badge Cian que sobresale a la derecha y abajo */
+.about-badge-cyan {
   position: absolute;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+  bottom: -20px;
+  right: -30px; /* Cruza el límite de la columna e invade la derecha */
+  background-color: var(--accent-cyan);
+  padding: 24px 32px;
+  min-width: 320px;
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
-.light-mode .about-card__glow {
-  background: linear-gradient(135deg, #3b82f6, #6366f1, #a855f7);
+.badge-cyan-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  font-style: italic;
+  color: #020617; /* Texto oscuro sobre cian */
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
-.about-card__glow.active {
-  opacity: 0.35;
-}
-
-.light-mode .about-card__glow.active {
-  opacity: 0.22;
-}
-
-/* === CARD CONTENT === */
-.about-card__content {
-  position: relative;
-  z-index: 1;
-  background: rgba(10, 14, 23, 0.82);
-  padding: 32px 24px;
-  height: 100%;
-  width: 100%;
-  border-radius: 27px;
+.badge-cyan-subtitle {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  transition: background-color 0.4s ease;
-}
-
-.light-mode .about-card__content {
-  background: rgba(255, 255, 255, 0.82);
-}
-
-.about-card__avatar {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  object-cover: cover;
-  border: 3px solid rgba(251, 191, 36, 0.25);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  margin-bottom: 20px;
-  transition: transform 0.4s ease, border-color 0.4s ease;
-}
-
-.light-mode .about-card__avatar {
-  border-color: rgba(37, 99, 235, 0.25);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
-}
-
-.about-card:hover .about-card__avatar {
-  transform: scale(1.05) rotate(3deg);
-  border-color: var(--accent-blue-bright);
-}
-
-.about-card__name {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 6px;
-  letter-spacing: -0.01em;
-}
-
-.light-mode .about-card__name {
-  color: var(--text-primary);
-}
-
-.about-card__role {
-  font-size: 0.85rem;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--accent-blue-bright);
-  margin-bottom: 18px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: #020617;
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+  white-space: nowrap;
 }
 
-.light-mode .about-card__role {
-  color: var(--accent-blue);
+.badge-line {
+  flex: 1;
+  height: 1px;
+  background: #020617;
+  opacity: 0.4;
 }
 
-.about-card__bio {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 24px;
-  padding: 0 10px;
-}
-
-/* === CARD SOCIALS === */
-.about-card__socials {
+/* Columna Derecha: Información */
+.about-info-premium {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 20px;
 }
 
-.about-card__socials a {
+.about-tagline-orange {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: #f97316; /* Color naranja idéntico a la captura */
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.about-title-giant {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 4.8rem);
+  font-weight: 900;
+  line-height: 0.9;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.about-quote-premium {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.6;
   color: var(--text-secondary);
-  transition: transform 0.3s ease, color 0.3s ease;
+  opacity: 0.85;
+  margin-bottom: 36px;
+  max-width: 480px;
 }
 
-.about-card__socials a:hover {
-  transform: translateY(-3px);
-  color: var(--text-primary);
+/* Estadísticas */
+.about-stats-premium {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 40px;
 }
 
-.social-icon {
-  width: 24px;
-  height: 24px;
+.stat-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-lbl {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Redes Sociales */
+.about-socials-premium {
+  display: flex;
+  gap: 12px;
+}
+
+.social-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-pill:hover {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: var(--accent-cyan);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.15);
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .about-grid-premium {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .about-visual-premium {
+    justify-content: center;
+  }
+  
+  .about-badge-cyan {
+    right: 50%;
+    transform: translateX(50%); /* Centrado en móviles */
+    bottom: -30px;
+  }
+  
+  .about-info-premium {
+    padding-left: 0;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .about-quote-premium {
+    text-align: center;
+  }
+  
+  .about-stats-premium {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .about-socials-premium {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-badge-cyan {
+    min-width: 280px;
+    padding: 16px 20px;
+  }
+  
+  .badge-cyan-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-stats-premium {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }

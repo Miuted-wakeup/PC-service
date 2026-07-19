@@ -22,7 +22,7 @@
 
 /* === LIST === */
 .faq__list {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

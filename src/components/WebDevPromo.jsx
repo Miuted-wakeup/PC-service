@@ -1,69 +1,68 @@
 import React from 'react';
 import './WebDevPromo.css';
-import { Code, Zap, Smartphone, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const WebDevPromo = ({ whatsappUrl }) => {
   return (
-    <section className="webdev-promo">
-      <div className="container">
-        <div className="webdev-promo__inner">
-          <div className="webdev-promo__content">
-            <span className="webdev-promo__tagline">¿Te gusta lo que ves?</span>
-            <h2 className="webdev-promo__title">
-              Lleva tu negocio al <span className="text-gradient">Siguiente Nivel</span>
-            </h2>
-            <p className="webdev-promo__desc">
-              Esta página web no es una plantilla. Está diseñada desde cero para ser ultrarrápida, moderna y orientada a conseguir clientes. 
-              <strong> También ofrezco servicios de Desarrollo Web para tu negocio.</strong>
-            </p>
-            
-            <div className="webdev-promo__features">
-              <div className="feature-item">
-                <Zap size={20} className="feature-icon" />
-                <span>Carga ultrarrápida</span>
-              </div>
-              <div className="feature-item">
-                <Smartphone size={20} className="feature-icon" />
-                <span>Diseño responsivo (Móvil)</span>
-              </div>
-              <div className="feature-item">
-                <Code size={20} className="feature-icon" />
-                <span>Diseño 100% personalizado</span>
-              </div>
-            </div>
+    <section className="webdev-promo-new">
+      {/* Banda diagonal con gradiente cian de nuestra paleta */}
+      <div className="diagonal-strip">
+        {/* Efecto de barrido de luz metálico continuo */}
+        <div className="sweep-line"></div>
+      </div>
+      
+      {/* Patrón decorativo de panal (Hexágonos) a la izquierda */}
+      <div className="decor-svg decor-hexes" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5">
+          <polygon points="50,1 95,25 95,75 50,99 5,75 5,25" />
+          <polygon points="50,20 80,35 80,65 50,80 20,65 20,35" />
+          <line x1="50" y1="1" x2="50" y2="20" />
+          <line x1="95" y1="25" x2="80" y2="35" />
+          <line x1="95" y1="75" x2="80" y2="65" />
+          <line x1="50" y1="99" x2="50" y2="80" />
+          <line x1="5" y1="75" x2="20" y2="65" />
+          <line x1="5" y1="25" x2="20" y2="35" />
+        </svg>
+      </div>
 
+      {/* Patrón decorativo de circuitos a la derecha */}
+      <div className="decor-svg decor-circuit" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1">
+          <rect x="35" y="35" width="30" height="30" rx="3" />
+          <line x1="50" y1="35" x2="50" y2="10" />
+          <circle cx="50" cy="10" r="3" />
+          <line x1="65" y1="50" x2="90" y2="50" />
+          <circle cx="90" cy="50" r="3" />
+          <line x1="50" y1="65" x2="50" y2="90" />
+          <circle cx="50" cy="90" r="3" />
+          <line x1="35" y1="50" x2="10" y2="50" />
+          <circle cx="10" cy="50" r="3" />
+          <path d="M65,35 L80,20 L80,5" />
+          <circle cx="80" cy="5" r="3" />
+          <path d="M35,65 L20,80 L5,80" />
+          <circle cx="5" cy="80" r="3" />
+        </svg>
+      </div>
+
+      <div className="container">
+        <div className="webdev-promo-new__content">
+          <div className="webdev-promo-new__text">
+            <span className="webdev-tag">INTEGRATED SOLUTIONS</span>
+            <h2 className="webdev-title">¿BUSCAS PRESENCIA DIGITAL?</h2>
+            <p className="webdev-desc">
+              También desarrollamos plataformas web de alto rendimiento. Del hardware al código, cubrimos todo tu espectro tecnológico con precisión de ingeniería.
+            </p>
+          </div>
+          
+          <div className="webdev-promo-new__action">
             <a 
               href={whatsappUrl} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="webdev-promo__btn"
+              className="webdev-promo__btn-adapted"
             >
               Cotizar mi página web <ExternalLink size={18} />
             </a>
-          </div>
-          
-          <div className="webdev-promo__visual" aria-hidden="true">
-            <div className="code-window">
-              <div className="code-window__header">
-                <span className="dot dot-red"></span>
-                <span className="dot dot-yellow"></span>
-                <span className="dot dot-green"></span>
-              </div>
-              <pre className="code-window__body">
-                <code>
-{`const YourBusiness = {
-  onlinePresence: "Premium",
-  loadingSpeed: "0.8s",
-  sales: "Optimized",
-  design: "Responsive"
-};
-
-if (needWebsite) {
-  contact("Muted Tech");
-}`}
-                </code>
-              </pre>
-            </div>
           </div>
         </div>
       </div>

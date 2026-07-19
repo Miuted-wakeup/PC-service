@@ -1,0 +1,165 @@
+.scan-box-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.scan-box-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  background: rgba(15, 23, 42, 0.2);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+/* Línea Láser Escáner que baja continuamente */
+.laser-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(6, 182, 212, 0) 10%,
+    rgba(6, 182, 212, 0.95) 50%,
+    rgba(6, 182, 212, 0) 90%
+  );
+  box-shadow: 
+    0 0 10px rgba(6, 182, 212, 0.8),
+    0 0 20px rgba(6, 182, 212, 0.4);
+  z-index: 10;
+  pointer-events: none;
+  animation: laserScan 4s linear infinite;
+}
+
+@keyframes laserScan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Media/Video de Fondo */
+.scan-box-bg-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: grayscale(1);
+  z-index: 1;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+.scan-box-card:hover .scan-box-bg-media {
+  opacity: 0.55;
+  filter: grayscale(0.5);
+}
+
+/* Gradiente de profundidad inferior */
+.scan-box-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #020617, transparent 80%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Contenido Central */
+.scan-box-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  z-index: 5;
+  text-align: center;
+}
+
+.scan-box-tagline {
+  max-width: 600px;
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(0.7rem, 1.5vw, 0.95rem);
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1.8;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+/* Botón Magnético/Destello */
+.scan-box-btn {
+  padding: 16px 44px;
+  background: #ffffff;
+  color: #020617;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scan-box-btn:hover {
+  background: #06b6d4;
+  color: #ffffff;
+  border-color: #06b6d4;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 25px rgba(6, 182, 212, 0.5),
+    0 15px 35px rgba(6, 182, 212, 0.2);
+}
+
+.scan-box-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scan-box-card {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .scan-box-tagline {
+    letter-spacing: 0.3em;
+    margin-bottom: 20px;
+  }
+  
+  .scan-box-btn {
+    padding: 12px 30px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scan-box-card {
+    aspect-ratio: 4 / 3;
+  }
+}

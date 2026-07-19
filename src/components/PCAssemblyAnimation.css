@@ -48,24 +48,38 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.canvas-steps {
+.canvas-steps-mask {
   position: relative;
-  height: 420px;
+  height: 350px;
   margin-top: 30px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 600px; /* Más ancho que una tarjeta para ver las laterales desvaneciéndose */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
+}
+
+.canvas-steps-track {
+  display: flex;
+  flex-direction: row; /* Horizontal */
+  gap: 30px; /* Espaciado entre tarjetas */
+  position: absolute;
+  top: 0;
+  left: 80px; /* Centra la primera tarjeta dentro de la máscara de 600px (600 - 440 = 160 / 2 = 80px) */
+  width: max-content;
 }
 
 .canvas-step-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 440px;
+  position: relative;
+  width: 440px; /* Ancho fijo */
   background: rgba(18, 18, 20, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   pointer-events: none;
+  height: 350px;
+  flex-shrink: 0;
 }
 
 .step-card-image {

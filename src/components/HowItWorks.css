@@ -24,9 +24,11 @@
 .hiw__steps {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 60px;
   margin-bottom: 56px;
+  position: relative;
+  z-index: 2; /* Por encima de la línea de progreso */
 }
 
 /* === STEP CARD === */
@@ -68,9 +70,11 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  background: var(--accent-blue-subtle);
-  border: 1px solid rgba(45, 122, 255, 0.12);
+  background: #080b11; /* Color sólido idéntico al fondo para ocultar la línea por detrás */
+  border: 1px solid rgba(6, 182, 212, 0.15);
   border-radius: 50%;
+  position: relative;
+  z-index: 3; /* Superior a la línea de progreso */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -107,27 +111,68 @@
   border: 1px solid rgba(6, 214, 160, 0.15);
 }
 
-/* === CONNECTOR === */
-.hiw__connector {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 70px;
-  width: 50px;
-  flex-shrink: 0;
+/* === SCROLL PROGRESS LINE === */
+.hiw__steps-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 56px;
 }
 
-.hiw__connector-line {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(251, 191, 36, 0.05), rgba(251, 191, 36, 0.25), rgba(251, 191, 36, 0.05));
+.hiw__progress-line-container {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.hiw__connector-arrow {
-  font-size: 1.2rem;
-  color: rgba(251, 191, 36, 0.25);
-  margin-top: 4px;
+/* En desktop: línea horizontal */
+@media (min-width: 769px) {
+  .hiw__progress-line-container {
+    top: 76px; /* Centrado vertical con respecto a la altura del icono */
+    left: 15%;
+    right: 15%;
+    height: 4px;
+    width: 70%;
+  }
+}
+
+/* En móvil: quitar línea de progreso completamente */
+@media (max-width: 768px) {
+  .hiw__progress-line-container {
+    display: none;
+  }
+}
+
+.hiw__progress-line-base {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.hiw__progress-line-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue-bright));
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+  animation: progressLinePulse 3s infinite ease-in-out;
+}
+
+@keyframes progressLinePulse {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--accent-cyan-glow);
+    filter: brightness(0.9);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-cyan-glow);
+    filter: brightness(1.15);
+  }
+}
+
+@media (max-width: 768px) {
+  .hiw__progress-line-fill {
+    background: linear-gradient(180deg, var(--accent-cyan), var(--accent-blue-bright));
+  }
 }
 
 /* === GUARANTEE BADGE === */

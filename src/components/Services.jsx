@@ -2,6 +2,7 @@ import React from 'react';
 import './Services.css';
 import { motion } from 'framer-motion';
 import { Wrench, Monitor, HardDrive, Settings, ShieldCheck, MessageCircle } from 'lucide-react';
+import useIsMobile from '../hooks/useIsMobile';
 
 const services = [
   {
@@ -43,6 +44,7 @@ const services = [
 ];
 
 const Services = () => {
+  const isMobile = useIsMobile();
   const CUSTOM_WA_MESSAGE = "Hola, vi tu página web pero no encontré un servicio que describa exactamente mi problema. Quisiera saber si puedes ayudarme.";
   const customWhatsappUrl = `https://wa.me/573137148566?text=${encodeURIComponent(CUSTOM_WA_MESSAGE)}`;
 
@@ -65,26 +67,33 @@ const Services = () => {
           </p>
         </motion.div>
         
+        {/* Banner de Seguridad Premium con el mismo efecto cian vivo e inclinado que WebDevPromo */}
         <motion.div 
-          className="privacy-banner glass-panel"
+          className="privacy-banner-premium"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="privacy-banner__icon">
-            <ShieldCheck size={40} color="var(--accent-cyan)" />
+          <div className="privacy-banner-premium__diagonal">
+            <div className="privacy-banner-premium__sweep"></div>
           </div>
-          <div className="privacy-banner__content">
-            <h3>Tu información está 100% segura</h3>
-            <ul className="privacy-banner__list">
-              <li>✔ No revisamos archivos personales</li>
-              <li>✔ Tus contraseñas permanecen privadas</li>
-              <li>✔ Respaldamos tu información antes de formatear</li>
-            </ul>
+          <div className="privacy-banner-premium__content">
+            <div className="privacy-banner-premium__icon">
+              <ShieldCheck size={40} />
+            </div>
+            <div className="privacy-banner-premium__text">
+              <h3>Tu información está 100% segura</h3>
+              <ul className="privacy-banner-premium__list">
+                <li><span className="bullet-glow">✔</span> No revisamos archivos personales</li>
+                <li><span className="bullet-glow">✔</span> Tus contraseñas permanecen privadas</li>
+                <li><span className="bullet-glow">✔</span> Respaldamos tu información antes de formatear</li>
+              </ul>
+            </div>
           </div>
         </motion.div>
         
+        {/* Grid de servicios */}
         <div className="services__grid">
           {services.map((service, index) => (
             <motion.article 
@@ -120,30 +129,64 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Banner de ayuda personalizada */}
-        <motion.div 
-          className="services__custom-cta glass-panel"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="custom-cta__content">
-            <h3 className="custom-cta__title">¿Tu caso es diferente?</h3>
-            <p className="custom-cta__desc">
-              Escríbeme por WhatsApp y revisamos la mejor solución para tu equipo sin compromiso.
-            </p>
-          </div>
-          <a 
-            href={customWhatsappUrl} 
-            className="custom-cta__btn" 
-            target="_blank" 
-            rel="noopener noreferrer"
+        {/* Banner de ayuda personalizada: Móvil = Glass original, PC = Overhaul con línea cian cruzando botón blanco */}
+        {isMobile ? (
+          <motion.div 
+            className="services__custom-cta glass-panel"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <MessageCircle size={18} />
-            <span>Revisar mi caso</span>
-          </a>
-        </motion.div>
+            <div className="custom-cta__content">
+              <h3 className="custom-cta__title">¿Tu caso es diferente?</h3>
+              <p className="custom-cta__desc">
+                Escríbeme por WhatsApp y revisamos la mejor solución para tu equipo sin compromiso.
+              </p>
+            </div>
+            <a 
+              href={customWhatsappUrl} 
+              className="custom-cta__btn" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <MessageCircle size={18} />
+              <span>Revisar mi caso</span>
+            </a>
+          </motion.div>
+        ) : (
+          <motion.div 
+            className="services__custom-cta-overhaul"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="cta-overhaul__text">
+              <span className="cta-overhaul__tag">// SOPORTE PERSONALIZADO //</span>
+              <h3 className="cta-overhaul__title">¿TU CASO ES DIFERENTE?</h3>
+              <p className="cta-overhaul__desc">
+                Escríbeme por WhatsApp y revisamos la mejor solución para tu equipo sin compromiso.
+              </p>
+            </div>
+
+            <div className="cta-overhaul__interactive">
+              {/* Línea cian brillante horizontal */}
+              <div className="cta-overhaul__line"></div>
+
+              {/* Botón rectangular blanco alineado al centro */}
+              <a 
+                href={customWhatsappUrl} 
+                className="cta-overhaul__btn" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <span>REVISAR MI CASO</span>
+                <MessageCircle size={18} style={{ marginLeft: '10px' }} />
+              </a>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );

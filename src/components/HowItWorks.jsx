@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './HowItWorks.css';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { MessageCircle, Calendar, CheckCircle, ShieldCheck } from 'lucide-react';
+import useIsMobile from '../hooks/useIsMobile';
 
 const steps = [
   {
@@ -31,8 +32,24 @@ const steps = [
 ];
 
 const HowItWorks = ({ whatsappUrl }) => {
+  const isMobile = useIsMobile();
+  const sectionRef = useRef(null);
+
+  // Capturar progreso del scroll con respecto a esta sección
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end center"] // Se llena de forma fluida a medida que cruza la pantalla
+  });
+
+  // Suavizar progreso
+  const scaleProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 25,
+    restDelta: 0.001
+  });
+
   return (
-    <section id="como-funciona" className="hiw">
+    <section id="como-funciona" className="hiw" ref={sectionRef}>
       <div className="container">
         <motion.div 
           className="hiw__header"
@@ -50,10 +67,24 @@ const HowItWorks = ({ whatsappUrl }) => {
           </p>
         </motion.div>
 
-        <div className="hiw__steps">
-          {steps.map((step, index) => (
-            <React.Fragment key={step.id}>
+        <div className="hiw__steps-container">
+          {/* Línea que se va llenando según el scroll */}
+          <div className="hiw__progress-line-container">
+            <div className="hiw__progress-line-base"></div>
+            <motion.div 
+              className="hiw__progress-line-fill"
+              style={
+                isMobile 
+                  ? { scaleY: scaleProgress, originY: 0, scaleX: 1 } 
+                  : { scaleX: scaleProgress, originX: 0, scaleY: 1 }
+              }
+            ></motion.div>
+          </div>
+
+          <div className="hiw__steps">
+            {steps.map((step, index) => (
               <motion.div 
+                key={step.id}
                 className="hiw__step"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -66,14 +97,8 @@ const HowItWorks = ({ whatsappUrl }) => {
                 <p className="hiw__step-desc">{step.description}</p>
                 <span className="hiw__step-detail">{step.detail}</span>
               </motion.div>
-              {index < steps.length - 1 && (
-                <div className="hiw__connector" aria-hidden="true">
-                  <div className="hiw__connector-line"></div>
-                  <div className="hiw__connector-arrow">→</div>
-                </div>
-              )}
-            </React.Fragment>
-          ))}
+            ))}
+          </div>
         </div>
 
         <motion.div 
